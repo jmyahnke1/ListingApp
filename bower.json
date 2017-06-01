@@ -1,10 +1,10 @@
 {
-  "name": "listapp",
+  "name": "demo",
   "authors": [
-    "various"
+    "jasonvandewarker <jasonvandewarker@gmail.com>"
   ],
   "description": "",
-  "main": "",
+  "main": "\"gulpfile.js\"",
   "license": "MIT",
   "homepage": "",
   "ignore": [
@@ -16,14 +16,11 @@
   ],
   "dependencies": {
     "angular": "^1.6.4",
-    "jquery": "^3.2.1",
-    "bootstrap": "^3.3.7",
-    "angular-ui-router": "ui-router#^1.0.3+hybrid-2.0.0-2",
+    "bootstrap": "boostrap#^3.3.7",
     "angular-local-storage": "^0.6.0",
-    "ngSweetAlert": "^1.1.2",
+    "angular-ui-router": "ui-router#^1.0.3+hybrid-2.0.0-2",
     "angularjs-social-login": "^2.5.1",
-    "angular-filepicker": "^1.1.4",
-    "font-awesome": "^4.7.0"
+    "toastr": "^2.1.3"
   },
   "overrides": {
     "bootstrap": {

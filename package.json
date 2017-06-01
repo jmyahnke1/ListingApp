@@ -2,8 +2,14 @@
   "name": "demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "bower": "^1.8.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-inject": "^4.2.0",
@@ -11,11 +17,5 @@
     "gulp-open": "^2.0.0",
     "gulp-util": "^3.0.8",
     "wiredep": "^4.0.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
