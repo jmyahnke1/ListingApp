@@ -5,17 +5,19 @@
         .module('app')
         .factory('MessageFactory', MessageFactory);
 
-    MessageFactory.$inject = [''];
+    MessageFactory.$inject = [];
 
     /* @ngInject */
     function MessageFactory() {
         var service = {
             function: function
-        };
+        }
 
         return service;
 
-        function function() {
+        function
+
+        function() {
 
         }
     }
