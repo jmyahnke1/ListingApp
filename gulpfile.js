@@ -56,7 +56,7 @@ gulp.task('app', function(){
         uri: 'http://localhost:8080',
         app: 'Google Chrome'
     };
-    gulp.src('./index.html')
+    gulp.src('.index.html')
         .pipe(open(options));
 });
 
