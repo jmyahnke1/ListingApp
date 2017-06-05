@@ -15,7 +15,7 @@
         vm.messageObject.userName = "";
         vm.messageObject.subject = "";
         vm.messageObject.item = "";
-        vm.messageObject.text = "";
+        vm.messageObject.messageText = "";
         var date = new Date();
         var todaysDateTime = date.toLocaleString();
         vm.CreationDate = todaysDateTime;
@@ -23,12 +23,12 @@
         /////////////////////////
 
 
-        //activate();
+        //sactivate();
 
         function submit(messageObject)
         {
              messageObject.CreationDate = todaysDateTime;
-            messageFactory.postMessage(message)
+            messageFactory.postMessage(messageObject)
                           .then(function(data)
                           {
                           // Success read out

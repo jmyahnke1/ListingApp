@@ -20,7 +20,7 @@
  function getMessage(messageHistory) {
             return $http({
                 Method: 'GET',
-                url: localApi + 'Messages/MessageHistory',
+                url: 'http://localhost:59820/' + 'Messages/MessageHistory',
                 params: searchParameters
             }).then(function (response) {
                 return response;
@@ -34,7 +34,7 @@
 
             return $http({
                 Method: 'Post',
-                url: localApi + '/Messages',
+                url: 'http://localhost:59820/' + '/Messages',
                 dataType: 'json',
                 data: messages,
                 headers:
