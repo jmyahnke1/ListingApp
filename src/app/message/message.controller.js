@@ -19,6 +19,7 @@
         var date = new Date();
         var todaysDateTime = date.toLocaleString();
         vm.CreationDate = todaysDateTime;
+        vm.getMessageById = getMessageById;
       
         /////////////////////////
 
@@ -43,6 +44,13 @@
                            {
                              toastr.error("there was a problem: " + error.statusText);
                            });
+        }
+        function getMessageById(id){
+            MessageFactory
+            .getMessageById(id)
+            .then(function (data){
+                vm.selectedUser = data;
+            });
         }
 
     }

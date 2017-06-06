@@ -17,13 +17,13 @@
 
         return service;
 
- function getMessage(messageHistory) {
+ function getMessageById(id) {
             return $http({
                 Method: 'GET',
-                url: 'http://localhost:59820/' + 'Messages',
+                url: 'http://localhost:59820/api' + 'Messages' + id,
                 params: searchParameters
             }).then(function (response) {
-                return response;
+                return response.data.messages[0];
             }, function (error) {
                 console.log("Error" + error);
                 return error;
@@ -31,10 +31,9 @@
         }//end of getMessage function
 
         function postMessage(message) {
-
             return $http({
                 Method: 'Post',
-                url: 'http://localhost:59820/' + 'MessageHistories',
+                url: 'http://localhost:59820/api' + 'Messages',
                 dataType: 'json',
                 data: message,
                 headers:
@@ -46,7 +45,7 @@
             },function(error) {
               return error;
             })
-
         }//end of postMessage function
+
     }
 })();
