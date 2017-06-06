@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var app = angular.module('app', ['ui.router', 'LocalStorageModule']).value('localApi', 'http://localhost:49653/api/');
+    var app = angular.module('app', ['ui.router', 'LocalStorageModule']).value('localApi', 'http://localhost:59820/api/');
 
     app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
 

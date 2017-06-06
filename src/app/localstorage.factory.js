@@ -8,7 +8,7 @@
    LocalStorageFactory.inject = ['$http'];
     function LocalStorageFactory($http) {
         var service = {
-            :
+            //:
         };
         return service
     }

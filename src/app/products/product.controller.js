@@ -10,9 +10,9 @@
     /* @ngInject */
     function ProductController() {
       var vm = this;
-      Productctrl 
+      ProductCtrl 
 
-      Productctrl.addProperty = function(propertyInfo) {
+      ProductCtrl.addProperty = function(propertyInfo) {
 
         PropertyFactory
           .postProperty(propertyInfo)

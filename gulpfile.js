@@ -6,9 +6,9 @@ var gulp = require('gulp'),
     inject = require('gulp-inject'),    // inject app dependency includes on index.html
     open = require('gulp-open');      // open a URL in the browser
 
-var jsSources = ['app/**/*.js'],
-    cssSources = ['app/**/*.css'],
-    htmlSources = ['**/*.html'];
+var jsSources = ['/src/app/**/*.js'],
+    cssSources = ['/src/app/**/*.css'],
+    htmlSources = ['/src/**/*.html'];
 
 
 // Watch
@@ -18,15 +18,15 @@ gulp.task('watch', function() {
     gulp.watch(htmlSources, ['html']);
 });
 
-var paths = ['./bower_components/','./app/**/*.js','./app/**/*.css'];
+var paths = ['./src/bower_components/','./src/app/**/*.js','./src/app/**/*.css'];
 
 
 gulp.task('injectables', function() {
     var sources = gulp.src(paths, {read: false});
-    return gulp.src('index.html')
+    return gulp.src('./src/index.html')
         .pipe(wiredep())
-        .pipe(inject(sources))
-        .pipe(gulp.dest('.'));
+        .pipe(inject(sources,{relative : true}))
+        .pipe(gulp.dest('./src'));
 });
 
 gulp.task('js', function() {
@@ -46,7 +46,7 @@ gulp.task('css', function() {
 
 gulp.task('connect', function() {
     connect.server({
-        root: '.',
+        root: './src',
         livereload: true
     })
 });
@@ -54,9 +54,9 @@ gulp.task('connect', function() {
 gulp.task('app', function(){
     var options = {
         uri: 'http://localhost:8080',
-        app: 'Google Chrome'
+        app: 'Chrome'
     };
-    gulp.src('./index.html')
+    gulp.src('./src/index.html')
         .pipe(open(options));
 });
 

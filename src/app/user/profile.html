@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+<!-- endbower -->
+
+<!-- inject:css -->
+
+    <title> Profile Page </title>
+</head>
+<body ng-controller="userController as userCtrl ">
+
+<!-- bower:js -->
+
+<!-- endbower -->
+
+<div class="panel panel-default">
+  <div class="panel-heading">Profile Information</div>
+     <div class="panel-body">
+          <ol class="list-group"  ng-model="userCtrl">
+            <li class="list-group-item">phoneNumber: {{searchDetail.phoneNumber}}</li>
+            <li class="list-group-item">birthdate: {{searchDetail.birthdate}}</li>          
+            <li class="list-group-item">password: {{searchDetail.password}}</li>
+            <li class="list-group-item">zipCode: {{searchDetail.zipCode}}</li>
+            <li class="list-group-item">userName: {{searchDetail.userName}}</li>
+            <li class="list-group-item">email: {{searchDetail.email}}</li>
+          </ol>
+       </div>
+</div>
+<p> at least this line always shows </P>
+</body>
+
+</html>
