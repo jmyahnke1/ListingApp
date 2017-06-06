@@ -5,20 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
 </head>
-<body ng-controller="MessageContral as MessageCtrl">
+<body ng-controller="MessageControl as MessageCtrl">
  
 <div class="container">
   <form action="/action_page.php">
 
-    <label for="fname">Username:</label>
-    <input type="text" id="fname" name="username" placeholder="Your Name" ng-model="MessageCtrl.messageObject.userName">
+    <!--<label for="fname">Username:</label>
+    <input type="text" id="fname" name="username" placeholder="Your Name" ng-model="MessageCtrl.messageObject.userName">-->
 
     <label for="lname">Subject:</label>
     <input type="text" placeholder="Subject"ng-model="MessageCtrl.messageObject.subject">
 
-    <label for="lname">Item Interested in:</label>
-    <input type="text" placeholder="Item" ng-model="MessageCtrl.messageObject.item">
+    <!--<label for="lname">Item Interested in:</label>
+    <input type="text" placeholder="Item" ng-model="MessageCtrl.messageObject.item">-->
 
     <select id="buySell" name="buySellf">
       <option value="buy">Buy</option>

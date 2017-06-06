@@ -11,10 +11,10 @@
     function MessageController(messageFactory, toastr) {
         var vm = this;
         vm.messageController = messageController;
-        vm.messageObject = { };
-        vm.messageObject.userName = "";
+        vm.messageObject = {};
+       // vm.messageObject.userName = "";
         vm.messageObject.subject = "";
-        vm.messageObject.item = "";
+        //vm.messageObject.item = "";
         vm.messageObject.messageText = "";
         var date = new Date();
         var todaysDateTime = date.toLocaleString();
