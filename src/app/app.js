@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('app', ['oitozero.ngSweetAlert', 'socialLogin', 'ui.router', 'socialLogin', 'ui.bootstrap'])
+        .module('app', ['oitozero.ngSweetAlert', 'socialLogin', 'ui.router', 'socialLogin', 'ui.bootstrap', 'LocalStorageModule'])
         .value('localApi', 'http://localhost:59820/api/')
         .config(function($stateProvider, $urlRouterProvider, socialProvider) {
 
@@ -20,8 +20,8 @@
                 .state('login', {
                     url: "/fblogin",
                     templateUrl: "app/home/fblogin.html",
-                    controller: "HomeController",
-                    controllerAs: "HomeCtrl"
+                    controller: "UserController",
+                    controllerAs: "UserCtrl"
                 });
 
             $stateProvider
@@ -31,6 +31,18 @@
                     controller: "ProductController",
                     controllerAs: "ProductCtrl"
                 });
+
+            $stateProvider
+                .state('addproduct', {
+                    url: "/addproduct",
+                    templateUrl: "/app/products/product.add.html",
+                    controller: "ProductController",
+                    controllerAs: "ProductCtrl"
+                });
+
+
+
+
 
 
 

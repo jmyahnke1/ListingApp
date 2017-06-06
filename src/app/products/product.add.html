@@ -1,30 +1,23 @@
 <p> ADD PRODUCT PAGE </p>
 
+<form ng-submit="ProductCtrl.addProduct(product)">
 
+    <div class="form-group">
+        <label for="categoryselect">Category </label>
+        <select id="categoryselect" class="form-control" ng-model="product.categoryId">
+            <option value="{{items.categoryId}}" ng-repeat="items in ProductCtrl.menuItems">{{items.name}}</option>
+        </select>
+    </div>
 
+    <div class="form-group">
+        <label for="exampleInputEmail1">product description</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" ng-model="product.productDescription">
+    </div>
 
-<!--Name of Item
-Asking Price
-Condition
-Category Dropdown
+    <div class="form-group">
+        <label for="exampleInputPassword1">price</label>
+        <input type="number" class="form-control" id="exampleInputPassword1" ng-model="product.price">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
 
-Put in a category dropdown menu:
-Antique
-Appliances
-Bikes
-Boats
-Cars
-Books
-Phones
-Video Games
-Electronics
-Wanted
-Other
-
-Item Description
-
-
-Add Photo with Filepicker button
-
-
-Post button-->
+</form>

@@ -10,16 +10,16 @@
     /* @ngInject */
     function ProductFactory($http, localApi, $q) {
         var service = {
-            getProductDetails: getProductDetails,
-            postProducts: postProducts
+            getProductCategories: getProductCategories,
+            postProduct: postProduct
         };
 
         return service;
 
-        function getProductDetails(details) {
+        function getProductCategories(details) {
             return $http({
                 method: 'GET',
-                url: localApi + 'products',
+                url: localApi + 'categories',
                 params: details,
             }).then(function(returned) {
                 return returned;
@@ -29,16 +29,15 @@
             });
         } //end of getProductDetails
 
-        function postProducts(products) {
-            console.log(products);
+        function postProduct(product) {
+            console.log(product);
             return $http({
                 method: 'POST',
-                url: localApi + '/products',
-                dataType: "json",
-                data: products,
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
-                }
+                url: localApi + 'products',
+                data: product
+                    // headers: {
+                    //     'Content-Type': 'application/json; charset=utf-8'
+                    // }
             }).then(function(info) {
                 return info;
             }, function(error) {

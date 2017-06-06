@@ -1,1 +1,13 @@
 <p> This is the product feed page and it needs a category filter </p>
+
+
+<button type="button" class="btn btn-default" ng-click="ProductCtrl.getCategories()">Categories</button>
+
+<pre> {{ProductCtrl.categories | json}}
+
+
+
+<!--<ul>
+    <li ng-repeat="stuff in ProductCtrl.categories"></li>
+    <li>{{stuff.categoryDescription}}</li>
+</ul>-->
