@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-controller="loginController as loginCtrl">
+       <small class="text-muted">Or sign in without Facebook</small>
+        <br><br>
+
+        <input id="ember360" class="ember-view ember-text-field form-control login-input" ng-show="loginCtrl.signedIn" ng-model="loginCtrl.userObject.email"
+          placeholder="Email Address" type="text">
+        <input id="ember361" class="ember-view ember-text-field form-control login-input-pass" ng-show="loginCtrl.signedIn" ng-model="loginCtrl.userObject.password"
+          placeholder="Password" type="password">
+
+        <script id="metamorph-22-start" type="text/x-placeholder"></script>
+        <script id="metamorph-22-end" type="text/x-placeholder"></script>
+
+        <button class="btn btn-lg btn-primary btn-block btn-center" type="submit" data-bindattr-3="3" ng-click="loginCtrl.signIn(loginCtrl.userObject)">Sign in</button>
+       
+</body>
+</html>
