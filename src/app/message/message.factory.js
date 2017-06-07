@@ -4,7 +4,6 @@
     angular
         .module('app')
         .factory('MessageFactory', MessageFactory);
-
     MessageFactory.$inject = ['$http', 'localApi'];
 
     /* @ngInject */
@@ -46,6 +45,5 @@
               return error;
             })
         }//end of postMessage function
-
     }
 })();

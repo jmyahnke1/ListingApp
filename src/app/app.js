@@ -1,43 +1,75 @@
-(function () {
+
+(function() {
     'use strict';
 
-    var app = angular.module('app', ['ui.router', 'LocalStorageModule']).value('localApi', 'http://localhost:49653/api/');
+    angular
+        .module('app', ['oitozero.ngSweetAlert', 'socialLogin', 'ui.router', 'socialLogin', 'ui.bootstrap', 'LocalStorageModule'])
+        .value('localApi', 'http://localhost:59820/api/')
+        .config(function($stateProvider, $urlRouterProvider, socialProvider) {
 
-    app.config(function ($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+            $urlRouterProvider.otherwise("/main");
 
-        localStorageServiceProvider.setPrefix('app').setStorageType('sessionStorage').setNotify(true,true);
-        // For any unmatched url, redirect to /main
-        $urlRouterProvider.otherwise("/index");
+            $stateProvider
+                .state('main', {
+                    url: "/main",
+                    templateUrl: "main.html",
+                    controller: "HomeController",
+                    controllerAs: "HomeCtrl"
+                });
 
-        $stateProvider
-            .state('index', {
-                url: "/",
-                templateUrl: "index.html",
-                controller: "HomeController",
-                controllerAs : "HomeCtrl"
-            })
+            $stateProvider
+                .state('login', {
+                    url: "/fblogin",
+                    templateUrl: "app/home/fblogin.html",
+                    controller: "UserController",
+                    controllerAs: "UserCtrl"
+                });
 
-            .state("product", {
-                url: "/products",
-                templateUrl: "products/product.category.html",
-                controller:"ProductController",
-                controllerAs:"ProductCtrl"
-            })
+            $stateProvider
+                .state('productfeed', {
+                    url: "/productfeed",
+                    templateUrl: "/app/products/product.feed.html",
+                    controller: "ProductController",
+                    controllerAs: "ProductCtrl"
+                });
 
-            .state("user", {
-                url: "/profile",
-                templateUrl: "user/profile.html",
-                controller:"UserController",
-                controllerAs:"UserCtrl"
-            })
+            $stateProvider
+                .state('addproduct', {
+                    url: "/addproduct",
+                    templateUrl: "/app/products/product.add.html",
+                    controller: "ProductController",
+                    controllerAs: "ProductCtrl"
+                });
 
-            .state("message", {
-                url: "/message",
-                templateUrl: "message/message.html",
-                controller:"MessageController",
-                controllerAs:"MessageCtrl"
-            })
 
-    });
+
+
+
+
+
+            // $stateProvider
+            //     .state('message', {
+            //         url: "/app/message/message.html",
+            //         templateUrl: "app/message/message.html",
+            //         controller: "MessageController",
+            //         controllerAs: "MessageCtrl"
+            //     });
+
+            // $stateProvider
+            //     .state('favorites', {
+            //         url: "/app/user/favorites.html",
+            //         templateUrl: "app/user/favorites.html",
+            //         controller: "UserController",
+            //         controllerAs: "UserCtrl"
+            //     });
+
+
+            //socialProvider.setFbKey
+
+
+
+
+
+        }); // end of angular module
 
 })();

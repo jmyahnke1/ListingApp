@@ -1,15 +1,35 @@
 (function() {
-'use strict';
+    'use strict';
 
-   angular
+    angular
         .module('app')
-        .factory('LocalStorageFactory', LocalStorageFactory);
+        .factory('localStorageFactory', localStorageFactory);
 
-   LocalStorageFactory.inject = ['$http'];
-    function LocalStorageFactory($http) {
+    localStorageFactory.$inject = ['localStorageService'];
+
+    /* @ngInject */
+    function localStorageFactory(localStorageService) {
         var service = {
-            :
+            setLocalStorage: setLocalStorage,
+            getLocalStorage: getLocalStorage,
+            logout: logout
         };
-        return service
+        return service;
+
+        ////////////////
+
+        function setLocalStorage(key, value) {
+            return localStorageService.set(key, value);
+        }
+
+        function getLocalStorage(key) {
+            return localStorageService.get(key);
+
+        }
+
+        function logout() {
+            return localStorageService.clearAll();
+        }
     }
 })();
+
