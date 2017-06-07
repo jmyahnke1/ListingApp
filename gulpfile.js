@@ -6,9 +6,11 @@ var gulp = require('gulp'),
     inject = require('gulp-inject'), // inject app dependency includes on index.html
     open = require('gulp-open'); // open a URL in the browser
 
+
 var jsSources = ['src/app/**/*.js'],
     cssSources = ['src/app/**/*.css'],
     htmlSources = ['src/**/*.html'];
+
 
 
 // Watch
@@ -18,6 +20,7 @@ gulp.task('watch', function() {
     gulp.watch(htmlSources, ['html']);
 });
 
+
 var paths = ['./src/bower_components/', './src/app/**/*.js', './src/app/**/*.css'];
 
 
@@ -26,6 +29,7 @@ gulp.task('injectables', function() {
     return gulp.src('./src/index.html')
         .pipe(wiredep())
         .pipe(inject(sources, { relative: true }))
+
         .pipe(gulp.dest('./src'));
 });
 
