@@ -1,22 +1,32 @@
 (function() {
     'use strict';
 
-    angular
+   angular
         .module('app')
         .factory('UserFactory', UserFactory);
 
-    UserFactory.$inject = [''];
+   UserFactory.$inject = ['$http', 'localApi'];
 
-    /* @ngInject */
-    function UserFactory() {
+   /* @ngInject */
+    function UserFactory($http, localApi) {
         var service = {
-            function: function
+            searchUsers: searchUsers
         };
 
-        return service;
+       return service;
 
-        function function() {
+       function searchUsers(details){
+                 return $http ({
+                    method: 'GET',
+                    url: localApi+'/users',
+                    params: details,
+                 }).then (function(returned){
+                    return returned;
+                }, function (error){
+                      console.log("Error"+ error);
+                     return error;
+                   });
 
-        }
+       }
     }
 })();
