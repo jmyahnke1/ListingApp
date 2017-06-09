@@ -4,13 +4,12 @@
     angular
         .module('app')
         .factory('ProductFactory', ProductFactory);
-
     ProductFactory.$inject = ['$http', 'localApi', '$q', 'FilePicker'];
-
     /* @ngInject */
     function ProductFactory($http, localApi, $q) {
         var service = {
             getProductCategories: getProductCategories,
+
             postProduct: postProduct,
             getProductByCategories: getProductByCategories
         };
@@ -44,7 +43,6 @@
                 return error;
             })
         } //end of postProducts
-
 
         function getProductByCategories(categoryId) {
             return $http({

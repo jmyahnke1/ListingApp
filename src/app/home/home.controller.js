@@ -5,10 +5,12 @@
         .module('app')
         .controller('HomeController', HomeController);
 
+
     HomeController.$inject = ['HomeFactory', 'SweetAlert', '$state', 'localStorageFactory'];
 
     function HomeController(HomeFactory, SweetAlert, $state, localStorageFactory) {
         var vm = this;
+        // var dob = new Date();
 
 
         vm.links = [{
@@ -18,6 +20,7 @@
             'display': 'Product Feed',
             'state': 'productfeed'
         }, ];
+
 
         vm.status = {
             isopen: false
@@ -51,18 +54,31 @@
 
                 }, function(error) {
                     alert("Sign In Unsuccessful");
-                })
+                })//end of signIn function
         }
+        
+        //  var dob = new Date();
+        // var BirthDate = date.toLocaleString();
+        // vm.CreationDate = BirthDate;
+        // var convertedDateString = dateToConvert.toLocaleString(); 
+        // convertedDateString = convertedDateString.replace('at ', ''); 
+        // var BirthDate = new Date(convertedDateString);
+        //    var BirthDate = date.toLocaleString();
+        //    DateTime dob = new DateTime();
 
-        vm.register = function(registrationObject) {
+       var dob = new Date(Date.UTC());
+       var BirthDate = dob.toLocaleString();
+        vm.register = function(registrationObject){
+            registrationObject.BirthDate = BirthDate; 
             HomeFactory
                 .registerUser(registrationObject)
-                .then(function(returned) {
-                    SweetAlert.swal("Registration Complete!");
-                    console.log(returned);
-                }, function(error) {
+                .then(function(returned){
+                 SweetAlert.swal("Registration Complete!");
+                //  vm.registraionObject.BirthDate = date.toLocaleString();
+                 console.log(returned);   
+                }, function(error){
                     alert("Registration Unsuccessful");
                 })
-        }
+        }//end of register function
     };
 })();

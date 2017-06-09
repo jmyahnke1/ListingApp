@@ -42,16 +42,20 @@
             });
         }
 
-        function registerUser(details) {
-            return $http({
-                method: 'Post',
-                url: localApi + 'Users',
-                params: details,
-            }).then(function(returned) {
-                return returned;
-            }, function(error) {
-                return error;
-            });
-        }
+         function registerUser(object){
+             return $http ({
+                 method: 'Post',
+                 url: localApi + 'Users',
+                 params: object,
+                 dataType: "json",
+                 headers: {
+                   'Content-Type': 'application/json; charset=utf-8'
+                }
+             }) .then(function(returned){
+                 return returned;
+             }, function (error){
+                 return error;
+             });
+         }
     }
 })();

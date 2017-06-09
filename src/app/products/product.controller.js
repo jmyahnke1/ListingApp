@@ -21,6 +21,7 @@
         function getCategories() {
             ProductFactory
                 .getProductCategories()
+
                 .then(function(response) {
                     console.log(response);
                     vm.categories = response.data;
@@ -52,18 +53,6 @@
                     console.log(error);
                 })
         } //end of sortByCategories
-
-
-
-
-
-
-
-
-
-
-
-
 
     }; //end of ProductController
 

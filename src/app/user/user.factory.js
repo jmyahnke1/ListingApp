@@ -1,22 +1,34 @@
-// (function() {
-//     'use strict';
+(function() {
+    'use strict';
 
-//     angular
-//         .module('app')
-//         .factory('UserFactory', UserFactory);
+   angular
+        .module('app')
+        .factory('UserFactory', UserFactory);
 
-//     UserFactory.$inject = [''];
+   UserFactory.$inject = ['$http', 'localApi'];
 
-//     /* @ngInject */
-//     function UserFactory() {
-//         var service = {
-//             function: function
-//         };
+   /* @ngInject */
+    function UserFactory($http, localApi) {
+        var service = {
 
-//         return service;
+            fileUsers: fileUsers
 
-//         function function() {
+        };
 
-//         }
-//     }
-// })();
+       return service;
+
+       function fileUsers(id) {
+            return $http ({
+                method: 'GET',
+                url: localApi+'users/',
+                params: id,
+              }).then (function(returned){
+                    return returned.data[0];
+              }, function (error){
+                  console.log("Error"+ error);
+                return error;
+              });
+
+       }
+    }
+})();

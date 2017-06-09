@@ -4,10 +4,12 @@
     angular
         .module('app', ['oitozero.ngSweetAlert', 'socialLogin', 'ui.router', 'socialLogin', 'ui.bootstrap', 'LocalStorageModule'])
         .value('localApi', 'http://localhost:59820/api/')
+
         .config(function($stateProvider, $urlRouterProvider, socialProvider, localStorageServiceProvide, filepickerProvider) {
 
             filepickerProvider.setKey('  AMLMV2FACSqydDqkcATtaz');
             localStorageServiceProvider.setPrefix('app').setStorageType('sessionStorage').setNotify(true, true);
+
 
             $urlRouterProvider.otherwise("/main");
 
@@ -46,18 +48,6 @@
                 controller: "UserController",
                 controllerAs: "UserCtrl"
             });
-
-
-
-            //     });
-
-
-            //socialProvider.setFbKey
-
-
-
-
-
         }); // end of angular module
-
 })();
+
