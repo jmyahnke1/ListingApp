@@ -64,10 +64,5 @@
                     alert("Registration Unsuccessful");
                 })
         }
-
-
-
-
-
     };
 })();

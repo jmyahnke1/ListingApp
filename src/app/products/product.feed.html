@@ -10,7 +10,7 @@
 </div>
 <button type="button" class="btn btn-default btn-lg btn-block" ng-click="ProductCtrl.sortByCategories()">Get Products By Category</button>
 
-<pre> ,{{ ProductCtrl.selectedValue  }}, </pre>
+<pre> {{ ProductCtrl.sorted | json }} </pre>
 
 
 <div class="panel panel-default">

@@ -46,11 +46,14 @@
         } //end of postProducts
 
 
-        function getProductByCategories(products) {
+        function getProductByCategories(categoryId) {
             return $http({
                 method: 'GET',
-                url: localApi + 'Products/GetProductByCategory',
-                params: products,
+                url: localApi + 'Products/GetProductByCategory?categoryId=' + categoryId,
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                }
+                // params: categoryId
             }).then(function(returned) {
                 return returned;
             }, function(error) {

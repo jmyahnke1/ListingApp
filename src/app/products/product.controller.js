@@ -42,6 +42,7 @@
         }
 
         function sortByCategories() {
+
             ProductFactory
                 .getProductByCategories(vm.selectedValue)
                 .then(function(returned) {

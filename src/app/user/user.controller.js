@@ -1,20 +1,20 @@
-(function() {
-    'use strict';
+// (function() {
+//     'use strict';
 
-    angular
-        .module('app')
-        .controller('UserController', UserController);
+//     angular
+//         .module('app')
+//         .controller('UserController', UserController);
 
-    UserController.$inject = [''];
+//     UserController.$inject = [''];
 
-    /* @ngInject */
-    function UserController() {
-        var vm = this;
+//     /* @ngInject */
+//     function UserController() {
+//         var vm = this;
 
-        activate();
+//         activate();
 
-        function activate() {
+//         function activate() {
 
-        }
-    }
-})();
+//         }
+//     }
+// })();

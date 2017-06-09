@@ -35,14 +35,14 @@
                 templateUrl: "/app/products/product.add.html",
                 controller: "ProductController",
                 controllerAs: "ProductCtrl"
-            });
+            })
 
-            // .state('profile', {
-            //     url: "/profile",
-            //     templateUrl: "/app/user/profile.html",
-            //     controller: "ProductController",
-            //     controllerAs: "ProductCtrl"
-            // });
+            .state('profile', {
+                url: "/profile",
+                templateUrl: "/app/user/profile.html",
+                controller: "UserController",
+                controllerAs: "UserCtrl"
+            });
 
 
 
