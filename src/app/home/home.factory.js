@@ -27,7 +27,7 @@
             }, function(error) {
                 console.log("Error" + error);
                 return error;
-            })
+            });
         }
 
          function userLoginSearch(id) {

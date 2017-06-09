@@ -18,9 +18,6 @@
       
         /////////////////////////
 
-
-        //sactivate();
-
         vm.submit = function(messageObject) {
              messageObject.CreationDate = todaysDateTime;
             messageFactory.postMessage(messageObject)
@@ -31,14 +28,7 @@
                     alert("Message was unable to send");
                 })
         }//end of signIn function
-
-        // .then(function (returned) {
-        //             SweetAlert.swal("Good job!", "You clicked the button!", "success");
-        //             console.log(returned.userId);
-        //         }, function (error) {
-        //             alert("Sign In Unsuccessful");
-        //         })
-
+        
         vm.messageHistory = function(id){
             MessageFactory
             .getMessageById(id)

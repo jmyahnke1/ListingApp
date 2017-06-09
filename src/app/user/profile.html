@@ -1,37 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"/>
+
 <!-- endbower -->
 
 <!-- inject:css -->
 
    <title> Profile Page </title>
 </head>
-<body ng-controller="userController as userCtrl ">
+  
+<body ng-controller="UserController as UserCtrl">
+
+<div class="container">
+      <div class="row">
+      <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+           <A href="edit.html" >Edit Profile</A>
+
+        <A href="edit.html" >Logout</A>
+       <br>
+<p class=" text-info">June 08,2017,01:00 pm </p>
+      </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+   
+   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">User Name</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://placehold.it/" class="img-circle img-responsive"> </div>
+
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>UserName</td>
+                        <td><input type="text" ng-model="userCtrl.userDetail.userName"/></td>
+                      </tr>
+                      <tr>
+                        <td>ZipCode:</td>
+                         <td><input type="text" ng-model="userCtrl.userDetail.zipCode"/></td>
+                      </tr>
+                      
+                      <tr>
+                        <td>Date of Birth</td>
+                        <td><input type="text" ng-model="userCtrl.userDetail.birthdate"/></td>
+                      </tr>
+                   
+                        <tr>
+                        <td>Password</td>
+                        <td><input type="text" ng-model="userCtrl.userDetail.password"/></td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><input type="text" ng-model="userCtrl.userDetail.email"/></td>
+                      </tr>
+                        <td>Phone Number</td>
+                        <td><input type="text" ng-model="userCtrl.userDetail.phoneNumber"/></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <button type="button" class="btn btn-primary" ng-click="userCtrl.getInfo()"> Profile Information </button>
+                  <!--<pre>,{{userCtrl.title}},</pre>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            
 
 <!-- bower:js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
-<!-- endbower -->
-
-<div class="panel panel-default">
-  <div class="panel-heading">Profile Information</div>
-     <div class="panel-body">
-          <ol class="list-group"  ng-model="userCtrl">
-            <li class="list-group-item">phoneNumber: {{searchDetail.phoneNumber}}</li>
-            <li class="list-group-item">birthdate: {{searchDetail.birthdate}}</li>          
-           <li class="list-group-item">password: {{searchDetail.password}}</li>
-            <li class="list-group-item">zipCode: {{searchDetail.zipCode}}</li>
-            <li class="list-group-item">userName: {{searchDetail.userName}}</li>
-            <li class="list-group-item">email: {{searchDetail.email}}</li>
-          </ol>
-       </div>
-</div>
-<p> at least this line always shows </P>
 </body>
 
-</html>
-
+</html> 

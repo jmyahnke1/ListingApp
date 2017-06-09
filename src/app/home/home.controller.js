@@ -10,8 +10,7 @@
     function HomeController(HomeFactory, SweetAlert, $state) {
         var vm = this;
         // var dob = new Date();
-        
-       
+
         vm.links = [{
             'display': 'Welcome User!',
             'state': 'login'
@@ -31,6 +30,7 @@
         };
 
         vm.toggleDropdown = function ($event) {
+
             $event.preventDefault();
             $event.stopPropagation();
             vm.status.isopen = !vm.status.isopen;
@@ -70,22 +70,5 @@
                     alert("Registration Unsuccessful");
                 })
         }//end of register function
-
-
-        //     function loginButton() {
-        //         swal({
-        //             title: "BEHOLD THE TEXT BOX OF DEATH!",
-        //             text: 'An incorrect answer means beheading:',
-        //             type: 'input',
-        //             showCancelButton: true,
-        //             closeOnConfirm: true,
-        //             animation: "slide-from-top"
-        //         }, function(inputValue) {
-        //             console.log("You wrote", inputValue);
-        //         });
-        //     };
-        // }
-
-
     };
 })();
