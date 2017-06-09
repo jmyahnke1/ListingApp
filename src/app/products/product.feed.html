@@ -1,13 +1,21 @@
-<p> This is the product feed page and it needs a category filter </p>
+<h1> Product Feed </h1>
+
+<!--<button type="button" class="btn btn-default" ng-click="ProductCtrl.getCategories()">Product Categories</button>-->
+
+<div class="form-group">
+    <label for="categoryselect">Category </label>
+    <select id="categoryselect" class="form-control" ng-model="ProductCtrl.selectedValue">
+            <option value="{{items.categoryId}}" ng-repeat="items in ProductCtrl.categories">{{items.categoryDescription}}</option>
+        </select>
+</div>
+<button type="button" class="btn btn-default btn-lg btn-block" ng-click="ProductCtrl.sortByCategories()">Get Products By Category</button>
+
+<pre> {{ ProductCtrl.sorted | json }} </pre>
 
 
-<button type="button" class="btn btn-default" ng-click="ProductCtrl.getCategories()">Categories</button>
+<div class="panel panel-default">
+    <div class="panel-body">
 
-<pre> {{ProductCtrl.categories | json}}
+    </div>
+</div>
 
-
-
-<!--<ul>
-    <li ng-repeat="stuff in ProductCtrl.categories"></li>
-    <li>{{stuff.categoryDescription}}</li>
-</ul>-->

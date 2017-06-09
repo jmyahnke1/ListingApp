@@ -10,54 +10,18 @@
     /* @ngInject */
     function ProductController(ProductFactory) {
         var vm = this;
-        vm.menuItems = [{
-                'name': 'Antiques',
-                'categoryId': '1'
-            },
-            {
-                'name': 'Appliances',
-                'categoryId': '2'
-            },
-            {
-                'name': 'Boats',
-                'categoryId': '3'
-            },
-            {
-                'name': 'Cars',
-                'categoryId': '4'
-            },
-            {
-                'name': 'Books',
-                'categoryId': '5'
-            },
-            {
-                'name': 'Phones',
-                'categoryId': '6'
-            },
-            {
-                'name': 'Video Games',
-                'categoryId': '7'
-            },
-            {
-                'name': 'Electronics',
-                'categoryId': '8'
-            },
-            {
-                'name': 'Wanted',
-                'categoryId': '9'
-            },
-            {
-                'name': 'Other',
-                'categoryId': '10'
-            },
-        ];
+        vm.sortByCategories = sortByCategories;
 
+        activate();
 
-        ////////////////////////////////////
+        function activate() {
+            getCategories();
+        }
 
-        vm.getCategories = function(details) {
+        function getCategories() {
             ProductFactory
-                .getProductCategories(details)
+                .getProductCategories()
+
                 .then(function(response) {
                     console.log(response);
                     vm.categories = response.data;
@@ -76,12 +40,19 @@
                 }, function(error) {
                     console.log(error);
                 });
+        }
 
+        function sortByCategories() {
 
+            ProductFactory
+                .getProductByCategories(vm.selectedValue)
+                .then(function(returned) {
+                    console.log(returned);
+                    vm.sorted = returned.data;
+                }, function(error) {
+                    console.log(error);
+                })
+        } //end of sortByCategories
 
-
-
-
-        }; //end of ProductController
-    }
+    }; //end of ProductController
 })();

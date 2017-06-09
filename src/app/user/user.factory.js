@@ -10,22 +10,24 @@
    /* @ngInject */
     function UserFactory($http, localApi) {
         var service = {
-            searchUsers: searchUsers
+
+            fileUsers: fileUsers
+
         };
 
        return service;
 
-       function searchUsers(details){
-                 return $http ({
-                    method: 'GET',
-                    url: localApi+'/users',
-                    params: details,
-                 }).then (function(returned){
-                    return returned;
-                }, function (error){
-                      console.log("Error"+ error);
-                     return error;
-                   });
+       function fileUsers(id) {
+            return $http ({
+                method: 'GET',
+                url: localApi+'users/',
+                params: id,
+              }).then (function(returned){
+                    return returned.data[0];
+              }, function (error){
+                  console.log("Error"+ error);
+                return error;
+              });
 
        }
     }
