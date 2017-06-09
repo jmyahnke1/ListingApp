@@ -5,11 +5,12 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['HomeFactory', 'SweetAlert', '$state'];
+    HomeController.$inject = ['HomeFactory', 'SweetAlert', '$state', 'localStorageFactory'];
 
-    function HomeController(HomeFactory, SweetAlert, $state) {
+    function HomeController(HomeFactory, SweetAlert, $state, localStorageFactory) {
         var vm = this;
-        //vm.loginButton = loginButton;
+
+
         vm.links = [{
             'display': 'Welcome User!',
             'state': 'login'
@@ -34,20 +35,38 @@
             vm.status.isopen = !vm.status.isopen;
         };
 
+        vm.signIn = function(userObject) {
+            HomeFactory
+                .userLoginSearch(userObject)
+                .then(function(returned) {
+                    SweetAlert.swal("Great job!");
+                    console.log(returned.userId);
 
-        //     function loginButton() {
-        //         swal({
-        //             title: "BEHOLD THE TEXT BOX OF DEATH!",
-        //             text: 'An incorrect answer means beheading:',
-        //             type: 'input',
-        //             showCancelButton: true,
-        //             closeOnConfirm: true,
-        //             animation: "slide-from-top"
-        //         }, function(inputValue) {
-        //             console.log("You wrote", inputValue);
-        //         });
-        //     };
-        // }
+                    var setId = returned.userId;
+                    localStorageFactory.setLocalStorage('userId', setId);
+                    var getId = localStorageFactory.getLocalStorage('userId');
+                    console.log(getId);
+
+                    $state.go('profile');
+
+                }, function(error) {
+                    alert("Sign In Unsuccessful");
+                })
+        }
+
+        vm.register = function(registrationObject) {
+            HomeFactory
+                .registerUser(registrationObject)
+                .then(function(returned) {
+                    SweetAlert.swal("Registration Complete!");
+                    console.log(returned);
+                }, function(error) {
+                    alert("Registration Unsuccessful");
+                })
+        }
+
+
+
 
 
     };

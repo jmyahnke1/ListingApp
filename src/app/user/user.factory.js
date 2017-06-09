@@ -1,22 +1,22 @@
-(function() {
-    'use strict';
+// (function() {
+//     'use strict';
 
-    angular
-        .module('app')
-        .factory('UserFactory', UserFactory);
+//     angular
+//         .module('app')
+//         .factory('UserFactory', UserFactory);
 
-    UserFactory.$inject = [''];
+//     UserFactory.$inject = [''];
 
-    /* @ngInject */
-    function UserFactory() {
-        var service = {
-            function: function
-        };
+//     /* @ngInject */
+//     function UserFactory() {
+//         var service = {
+//             function: function
+//         };
 
-        return service;
+//         return service;
 
-        function function() {
+//         function function() {
 
-        }
-    }
-})();
+//         }
+//     }
+// })();

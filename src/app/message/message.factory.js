@@ -1,24 +1,24 @@
-(function() {
-    'use strict';
+// (function() {
+//     'use strict';
 
-    angular
-        .module('app')
-        .factory('MessageFactory', MessageFactory);
+//     angular
+//         .module('app')
+//         .factory('MessageFactory', MessageFactory);
 
-    MessageFactory.$inject = [];
+//     MessageFactory.$inject = [];
 
-    /* @ngInject */
-    function MessageFactory() {
-        var service = {
-            function: function
-        }
+//     /* @ngInject */
+//     function MessageFactory() {
+//         var service = {
+//             function: function
+//         }
 
-        return service;
+//         return service;
 
-        function
+//         function
 
-        function() {
+//         function() {
 
-        }
-    }
-})();
+//         }
+//     }
+// })();

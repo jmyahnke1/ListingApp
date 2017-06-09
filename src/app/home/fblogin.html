@@ -1,35 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" rel="stylesheet">
 <link rel="stylesheet" href="./src/app/styles/styles.css">
 
-<div class="container">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
 
-    <script id="metamorph-1-start" type="text/x-placeholder"></script>
-    <script id="metamorph-21-start" type="text/x-placeholder"></script>
-
-    <div class="container text-center">
-        <form class="form-signin" data-ember-action="2">
-            <h2 class="form-signin-heading">Sign in</h2>
-
-            <small class="text-muted">Log in here through Facebook.</small>
-            <br><br>
+<body>
+    <div class="container">
 
 
-            <p>
-                <a class="btn btn-primary social-login-btn social-facebook" href="/auth/facebook"><i class="fa fa-facebook"></i></a>
-            </p>
+        <script id="metamorph-1-start" type="text/x-placeholder"></script>
+        <script id="metamorph-21-start" type="text/x-placeholder"></script>
+
+        <div class="container text-center">
+            <form class="form-signin" data-ember-action="2">
+                <h2 class="form-signin-heading">Sign in</h2>
+
+                <small class="text-muted">Log in here through Facebook.</small>
+                <br><br>
 
 
-            <small class="text-muted">Or sign in without Facebook</small>
-            <br><br>
 
-            <input id="ember360" class="ember-view ember-text-field form-control login-input" placeholder="Email Address" type="text">
-            <input id="ember361" class="ember-view ember-text-field form-control login-input-pass" placeholder="Password" type="password">
+                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                </fb:login-button>
 
-            <script id="metamorph-22-start" type="text/x-placeholder"></script>
-            <script id="metamorph-22-end" type="text/x-placeholder"></script>
+                <div id="status">
+                </div>
+                <p>
+                    <a class="btn btn-primary social-login-btn social-facebook"><i class="fa fa-facebook"></i></a>
+                </p>
 
-            <button class="btn btn-lg btn-primary btn-block btn-center" type="submit" data-bindattr-3="3">Sign in</button>
-            <br>
-            <small class="create-account text-muted">Dont have a [your service] or social network account? <button id="ember363" class="ember-view btn btn-sm btn-default"> Register </button> </small>
-        </form>
-    </div>
+
+                <small class="text-muted">Or sign in without Facebook</small>
+                <br><br>
+
+                <input id="ember360" class="ember-view ember-text-field form-control login-input" ng-model="userObject.email" placeholder="Email Address" type="text">
+                <input id="ember361" class="ember-view ember-text-field form-control login-input-pass" ng-model="userObject.password" placeholder="Password" type="password">
+                <script id="metamorph-22-start" type="text/x-placeholder"></script>
+                <script id="metamorph-22-end" type="text/x-placeholder"></script>
+
+                <button class="btn btn-lg btn-primary btn-block btn-center" type="submit" data-bindattr-3="3" ng-click="HomeCtrl.signIn(userObject)">Sign in</button>
+                <br>
+                <small class="create-account text-muted">Dont have a facebook account? <button id="ember363" ng-click="HomeCtrl.register()" class="ember-view btn btn-sm btn-default"> Register </button> </small>
+            </form>
+            <div class="ng-hide" ng-hide="ShowResults" ng-model="registrationObject">
+                <form method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" placeholder="UserName">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="phone" placeholder="PhoneNumber">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="Date of Birth" placeholder="Birthdate">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="Password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" name="Zipcode" placeholder="ZipCode">
+                    </div>
+
+                    <div class="mbr-buttons mbr-buttons--right"><button type="submit" class="mbr-buttons__btn btn btn-lg btn-success mbr-editable-button" ng-click="HomeCtrl.register(registrationObject)">Submit</button></div>
+                </form>
+            </div>
+        </div>
+        <!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+</body>
+
+</html>

@@ -9,7 +9,9 @@
 
     function HomeFactory($http, localApi) {
         var service = {
-            categoriesGrab: categoriesGrab
+            categoriesGrab: categoriesGrab,
+            userLoginSearch: userLoginSearch,
+            registerUser: registerUser
         };
 
         return service;
@@ -25,9 +27,31 @@
             }, function(error) {
                 console.log("Error" + error);
                 return error;
+            })
+        }
+
+        function userLoginSearch(id) {
+            return $http({
+                method: 'GET',
+                url: localApi + 'Users/UserSearch',
+                params: id,
+            }).then(function(returned) {
+                return returned.data[0];
+            }, function(error) {
+                return error;
             });
+        }
 
-
+        function registerUser(details) {
+            return $http({
+                method: 'Post',
+                url: localApi + 'Users',
+                params: details,
+            }).then(function(returned) {
+                return returned;
+            }, function(error) {
+                return error;
+            });
         }
     }
 })();

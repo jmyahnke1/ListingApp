@@ -14,52 +14,38 @@
                     templateUrl: "main.html",
                     controller: "HomeController",
                     controllerAs: "HomeCtrl"
-                });
+                })
 
-            $stateProvider
-                .state('login', {
-                    url: "/fblogin",
-                    templateUrl: "app/home/fblogin.html",
-                    controller: "UserController",
-                    controllerAs: "UserCtrl"
-                });
+            .state('login', {
+                url: "/fblogin",
+                templateUrl: "app/home/fblogin.html",
+                controller: "HomeController",
+                controllerAs: "HomeCtrl"
+            })
 
-            $stateProvider
-                .state('productfeed', {
-                    url: "/productfeed",
-                    templateUrl: "/app/products/product.feed.html",
-                    controller: "ProductController",
-                    controllerAs: "ProductCtrl"
-                });
+            .state('productfeed', {
+                url: "/productfeed",
+                templateUrl: "/app/products/product.feed.html",
+                controller: "ProductController",
+                controllerAs: "ProductCtrl"
+            })
 
-            $stateProvider
-                .state('addproduct', {
-                    url: "/addproduct",
-                    templateUrl: "/app/products/product.add.html",
-                    controller: "ProductController",
-                    controllerAs: "ProductCtrl"
-                });
+            .state('addproduct', {
+                url: "/addproduct",
+                templateUrl: "/app/products/product.add.html",
+                controller: "ProductController",
+                controllerAs: "ProductCtrl"
+            });
+
+            // .state('profile', {
+            //     url: "/profile",
+            //     templateUrl: "/app/user/profile.html",
+            //     controller: "ProductController",
+            //     controllerAs: "ProductCtrl"
+            // });
 
 
 
-
-
-
-
-            // $stateProvider
-            //     .state('message', {
-            //         url: "/app/message/message.html",
-            //         templateUrl: "app/message/message.html",
-            //         controller: "MessageController",
-            //         controllerAs: "MessageCtrl"
-            //     });
-
-            // $stateProvider
-            //     .state('favorites', {
-            //         url: "/app/user/favorites.html",
-            //         templateUrl: "app/user/favorites.html",
-            //         controller: "UserController",
-            //         controllerAs: "UserCtrl"
             //     });
 
 
