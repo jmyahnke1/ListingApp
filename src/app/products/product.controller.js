@@ -55,5 +55,4 @@
         } //end of sortByCategories
 
     }; //end of ProductController
-
 })();

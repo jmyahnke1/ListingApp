@@ -5,13 +5,11 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-
     HomeController.$inject = ['HomeFactory', 'SweetAlert', '$state', 'localStorageFactory'];
 
     function HomeController(HomeFactory, SweetAlert, $state, localStorageFactory) {
         var vm = this;
         // var dob = new Date();
-
 
         vm.links = [{
             'display': 'Welcome User!',
@@ -20,7 +18,6 @@
             'display': 'Product Feed',
             'state': 'productfeed'
         }, ];
-
 
         vm.status = {
             isopen: false
