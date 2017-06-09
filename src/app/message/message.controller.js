@@ -31,7 +31,6 @@
                     alert("Message was unable to send");
                 })
         }//end of signIn function
-//end of submit function
 
         // .then(function (returned) {
         //             SweetAlert.swal("Good job!", "You clicked the button!", "success");

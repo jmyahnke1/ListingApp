@@ -23,7 +23,7 @@
       <input type="submit" value="Submit" ng-click="MessageCtrl.submit(MessageCtrl.messageObject)">
     </form>
     <div class="list-group">
-     <button type="button" class="btn btn-warning btn-xs" ng-repeat="messages in HomeCtrl.messageHistory" ng-click="HomeCtrl.messageHistory()">Retrieve Messages
+     <button type="button" class="btn btn-warning btn-xs" ng-repeat="messages in MessageCtrl.messageHistory" ng-click="MessageCtrl.messageHistory()">Retrieve Messages
      </button>
      <li>{{}}</li>
     </div>
