@@ -1,14 +1,16 @@
 var gulp = require('gulp'),
-    livereload = require('gulp-livereload'),// auto-reload browser when files are changed
+    livereload = require('gulp-livereload'), // auto-reload browser when files are changed
     wiredep = require('wiredep').stream,
     gutil = require('gulp-util'),
-    connect = require('gulp-connect'),      // run a local dev server
-    inject = require('gulp-inject'),    // inject app dependency includes on index.html
-    open = require('gulp-open');      // open a URL in the browser
+    connect = require('gulp-connect'), // run a local dev server
+    inject = require('gulp-inject'), // inject app dependency includes on index.html
+    open = require('gulp-open'); // open a URL in the browser
 
-var jsSources = ['/src/app/**/*.js'],
-    cssSources = ['/src/app/**/*.css'],
-    htmlSources = ['/src/**/*.html'];
+
+var jsSources = ['src/app/**/*.js'],
+    cssSources = ['src/app/**/*.css'],
+    htmlSources = ['src/**/*.html'];
+
 
 
 // Watch
@@ -18,14 +20,16 @@ gulp.task('watch', function() {
     gulp.watch(htmlSources, ['html']);
 });
 
-var paths = ['./src/bower_components/','./src/app/**/*.js','./src/app/**/*.css'];
+
+var paths = ['./src/bower_components/', './src/app/**/*.js', './src/app/**/*.css'];
 
 
 gulp.task('injectables', function() {
-    var sources = gulp.src(paths, {read: false});
+    var sources = gulp.src(paths, { read: false });
     return gulp.src('./src/index.html')
         .pipe(wiredep())
-        .pipe(inject(sources,{relative : true}))
+        .pipe(inject(sources, { relative: true }))
+
         .pipe(gulp.dest('./src'));
 });
 
@@ -51,7 +55,7 @@ gulp.task('connect', function() {
     })
 });
 
-gulp.task('app', function(){
+gulp.task('app', function() {
     var options = {
         uri: 'http://localhost:8080',
         app: 'Chrome'

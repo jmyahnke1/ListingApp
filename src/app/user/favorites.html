@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,7 @@
 
    <title> Profile Page </title>
 </head>
-<body ng-controller="UserController as UserCtrl">
+<body>
 
 <!-- bower:js -->
 
@@ -42,35 +42,40 @@
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
                     <tbody>
-                      <tr>
+                         <tr>
+                             <tr>
                         <td>UserName</td>
-                        <td><input type="text" ng-model="userCtrl.userDetail.userName"/></td>
+                        <td>Homer simpson</td>
                       </tr>
                       <tr>
                         <td>ZipCode:</td>
-                         <td><input type="text" ng-model="userCtrl.userDetail.zipCode"/></td>
+                        <td>49007</td>
                       </tr>
                       
                       <tr>
                         <td>Date of Birth</td>
-                        <td><input type="text" ng-model="userCtrl.userDetail.birthdate"/></td>
+                        <td>May 12, 1956</td>
                       </tr>
                    
                         <tr>
                         <td>Password</td>
-                        <td><input type="text" ng-model="userCtrl.userDetail.password"/></td>
+                        <td>xxx</td>
                       </tr>
                       <tr>
                         <td>Email</td>
-                        <td><input type="text" ng-model="userCtrl.userDetail.email"/></td>
+                        <td><a href="simpsons@gmail.com">simpsons@gmail.com</a></td>
                       </tr>
                         <td>Phone Number</td>
-                        <td><input type="text" ng-model="userCtrl.userDetail.phoneNumber"/></td>
+                        <td>(939) 555-0113(Mobile)
+                        </td>
+                           
                       </tr>
+
+                      
                     </tbody>
                   </table>
-                  <button type="button" class="btn btn-primary" ng-click="userCtrl.getInfo()"> Profile Information </button>
-                  <!--<pre>,{{userCtrl.title}},</pre>-->
+                  <button type="button" class="btn btn-default" ng-click="UserController.getInfo(searchDetail)"> Profile Information </button>
+                  <li> {{}} </li>
                 </div>
               </div>
             </div>

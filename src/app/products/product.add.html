@@ -1,99 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
-<!-- endbower -->
+<p> ADD PRODUCT PAGE </p>
 
-<!-- inject:css -->
+<form ng-submit="ProductCtrl.addProduct(product)">
 
-    <title> ADD PRODUCT PAGE </title>
-</head>
+    <div class="form-group">
+        <label for="categoryselect">Category </label>
+        <select id="categoryselect" class="form-control" ng-model="product.categoryId">
+            <option value="{{items.categoryId}}" ng-repeat="items in ProductCtrl.menuItems">{{items.name}}</option>
+        </select>
+    </div>
 
-<body>
+    <div class="form-group">
+        <label for="exampleInputEmail1">product description</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" ng-model="product.productDescription">
+    </div>
 
+    <div class="form-group">
+        <label for="exampleInputPassword1">price</label>
+        <input type="number" class="form-control" id="exampleInputPassword1" ng-model="product.price">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
 
-<div class="panel panel-primary">
-  <div class="panel-heading"> Products </div>
-     <div class="panel-body">
-          <ol class="list-group">
-            <li class="list-group-item">Name of Item: {{}}</li>
-            <li class="list-group-item">Asking Price: {{}}</li>
-            <li class="list-group-item">Condition: {{}}</li>
-          </ol>
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                Dropdown
-            </button>
-             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <li><a href="#">Antique</a></li>
-                <li><a href="#">Appliances</a></li>
-                <li><a href="#">Bikes</a></li>
-                <li><a href="#">Boats</a></li>
-                <li><a href="#">Cars</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Phones</a></li>
-                <li><a href="#">Video Games</a></li>
-                <li><a href="#">Electronics</a></li>
-                <li><a href="#">Wanted</a></li>
-                <li><a href="#">Other</a></li>
-             </ul>
-          </div>
-          <div class="dropdown">
-           <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-            <span class="caret"></span></button>
-             <ul class="dropdown-menu">
-                <li><a href="#">Antique</a></li>
-                <li><a href="#">Appliances</a></li>
-                <li><a href="#">Bikes</a></li>
-                <li><a href="#">Boats</a></li>
-                <li><a href="#">Cars</a></li>
-                <li><a href="#">Books</a></li>
-                <li><a href="#">Phones</a></li>
-                <li><a href="#">Video Games</a></li>
-                <li><a href="#">Electronics</a></li>
-                <li><a href="#">Wanted</a></li>
-                <li><a href="#">Other</a></li>
-            </ul>
-          </div>
-
-      </div>
-
-</div>
-
-</body>
-</html>
-            
-
-
-
-
-
-
-<!--Name of Item
-Asking Price
-Condition
-Category Dropdown
-
-Put in a category dropdown menu:
-Antique
-Appliances
-Bikes
-Boats
-Cars
-Books
-Phones
-Video Games
-Electronics
-Wanted
-Other
-
-Item Description
-
-
-Add Photo with Filepicker button
-
-
-Post button-->
+</form>

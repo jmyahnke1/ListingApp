@@ -1,102 +1,107 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
 <head>
-  <meta charset="UTF-8">
-  <title>Gulp Demo</title>
-<!-- bower:css -->
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-<link rel="stylesheet" href="bower_components/toastr/toastr.css" />
-<!-- endbower -->
+    <meta charset="UTF-8">
+    <title>Listing App Thing</title>
 
-<!-- inject:css -->
-<link rel="stylesheet" href="/app/styles/styles.css">
-<!-- endinject -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+    <!-- endbower -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/user/profile.css">
+    <!-- endinject -->
 </head>
 
 <body ng-controller="HomeController as HomeCtrl">
-<!-- bower:js -->
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-<script src="bower_components/angularjs-social-login/angularjs-social-login.js"></script>
-<script src="bower_components/toastr/toastr.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<!-- endbower -->
 
-<div class="container">
-<div class="row">
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                        <a class="navbar-brand" href="#">Listing App</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+
+                            <!--<span uib-dropdown on-toggle="toggled(open)">
+                            <a href id="simple-dropdown" uib-dropdown-toggle>
+                                Dropdown test
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                <li ng-repeat="link in HomeCtrl.links">
+                                <a ui-sref="{{link.state}}">{{link.display}}</a>
+                                </li>
+                            </ul>
+                            </span>-->
+
+                        </ul>
+                        <form class="navbar-form navbar-left">
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown" uib-dropdown is-open="status.isopen">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" uib-dropdown-toggle ng-disabled="disabled">Links <span class="caret" ></span></a>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="link in HomeCtrl.links">
+                                        <a ui-sref="{{link.state}}">{{link.display}}</a>
+                                </ul>
+                                </li>
+                                <li><a ui-sref="login">Profile <span class="sr-only">(current)</span></a></li>
+                                <li><a ui-sref="favorites">Log Out</a></li>
+                                <li><a ui-sref="addproduct">Add products-temp</a></li>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+
+            <div class="well">
+                <ui-view></ui-view>
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+        <!-- end main row -->
+    </div>
+    <!-- end main container -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angularjs-social-login/angularjs-social-login.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
 
-
-</div> <!-- end main row -->
-</div> <!-- end main container -->
-
-
-<!-- inject:js -->
-<script src="app/app.js"></script>
-<script src="app/localstorage.factory.js"></script>
-<script src="app/message/message.controller.js"></script>
-<script src="app/message/message.factory.js"></script>
-<script src="app/products/product.controller.js"></script>
-<script src="app/products/product.factory.js"></script>
-<script src="app/user/user.controller.js"></script>
-<script src="app/user/user.factory.js"></script>
-<!-- endinject -->
+    <!-- inject:js -->
+    <script src="app/app.js"></script>
+    <script src="app/localstorage.factory.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/home.factory.js"></script>
+    <script src="app/home/login.controller.js"></script>
+    <script src="app/home/login.factory.js"></script>
+    <script src="app/message/message.controller.js"></script>
+    <script src="app/message/message.factory.js"></script>
+    <script src="app/products/product.controller.js"></script>
+    <script src="app/products/product.factory.js"></script>
+    <script src="app/user/user.controller.js"></script>
+    <script src="app/user/user.factory.js"></script>
+    <!-- endinject -->
 </body>
+
 </html>
-
-
-
 
