@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Facebook Login JavaScript Example</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <script>
+    // This is called with the results from from FB.getLoginStatus().
+    function statusChangeCallback(response) {
+      console.log('statusChangeCallback');
+      console.log(response);
+      // The response object is returned with a status field that lets the
+      // app know the current login status of the person.
+      // Full docs on the response object can be found in the documentation
+      // for FB.getLoginStatus().
+      if (response.status === 'connected') {
+        // Logged into your app and Facebook.
+        testAPI();
+      } else {
+        // The person is not logged into your app or we are unable to tell.
+        document.getElementById('status').innerHTML = 'Please log ' +
+          'into ListIt App.';
+      }
+    }
+
+    // This function is called when someone finishes with the Login
+    // Button.  See the onlogin handler attached to it in the sample
+    // code below.
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+    }
+
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '257413541331990',
+        cookie: true,  // enable cookies to allow the server to access 
+        // the session
+        xfbml: true,  // parse social plugins on this page
+        version: 'v2.9' // use graph api version 2.8
+      });
+
+      // Now that we've initialized the JavaScript SDK, we call 
+      // FB.getLoginStatus().  This function gets the state of the
+      // person visiting this page and can return one of three states to
+      // the callback you provide.  They can be:
+      //
+      // 1. Logged into your app ('connected')
+      // 2. Logged into Facebook, but not your app ('not_authorized')
+      // 3. Not logged into Facebook and can't tell if they are logged into
+      //    your app or not.
+      //
+      // These three cases are handled in the callback function.
+
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+
+    };
+
+    // Load the SDK asynchronously
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    // Here we run a very simple test of the Graph API after login is
+    // successful.  See statusChangeCallback() for when this call is made.
+    function testAPI() {
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api('/me', function (response) {
+        console.log('Successful login for: ' + response.name);
+        document.getElementById('status').innerHTML =
+          'Thanks for logging in, ' + response.name + '!';
+      });
+    }
+  </script>
+
+  <!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+   <fb:login-button autologoutlink="true"></fb:login-button>
+-->
+
+  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" autologoutlink="true">
+  </fb:login-button>
+
+
+
+
+
+
+  <div id="status">
+  </div>
+
+  <small class="create-account text-muted">Dont have a facebook account? <button id="ember363" ng-click="HomeCtrl.register()" class="ember-view btn btn-sm btn-default"> Register </button> </small>
+
+
+  <form class="ng-hide" ng-hide="register" method="post">
+    <div class="form-group">
+      <input type="text" class="form-control" name="name" placeholder="UserName" ng-model="registrationObject.UserName">
+    </div>
+    <div class="form-group">
+      <input type="number" class="form-control" name="Zipcode" placeholder="ZipCode" ng-model="registrationObject.ZipCode">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" name="phone" placeholder="PhoneNumber" ng-model="registrationObject.PhoneNumber">
+    </div>
+    <div class="form-group">
+      <input type="date" class="form-control" name="Date of Birth" placeholder="Birthdate" ng-model="registrationObject.Birthdate"
+        dob-format>
+    </div>
+    <div class="form-group">
+      <input type="tel" class="form-control" name="Password" placeholder="Password" ng-model="registrationObject.Password">
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" name="email" placeholder="Email" ng-model="registrationObject.Email">
+    </div>
+    <div class="mbr-buttons mbr-buttons--right">
+      <button type="submit" class="mbr-buttons__btn btn btn-lg btn-success mbr-editable-button" ng-click="HomeCtrl.register(registrationObject)">Submit</button>
+    </div>
+  </form>
+
+</body>
+
+</html>

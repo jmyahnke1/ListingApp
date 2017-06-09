@@ -1,260 +1,106 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
 <head>
-  <meta charset="UTF-8">
-  <title>Gulp Demo</title>
-<!-- bower:css -->
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-<link rel="stylesheet" href="bower_components/toastr/toastr.css" />
-<!-- endbower -->
+    <meta charset="UTF-8">
+    <title>Listing App Thing</title>
 
-<!-- inject:css -->
-<link rel="stylesheet" href="app/bower_components/angular/angular-csp.css">
-<link rel="stylesheet" href="app/bower_components/font-awesome/css/font-awesome.css">
-<link rel="stylesheet" href="app/bower_components/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap-theme.css">
-<link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<!-- endinject -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+    <!-- endbower -->
+    
 </head>
 
 <body ng-controller="HomeController as HomeCtrl">
-<!-- bower:js -->
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
-<script src="bower_components/angularjs-social-login/angularjs-social-login.js"></script>
-<script src="bower_components/toastr/toastr.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<!-- endbower -->
 
-<div class="container">
-<div class="row">
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                        <a class="navbar-brand" href="#">Listing App</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+
+                            <!--<span uib-dropdown on-toggle="toggled(open)">
+                            <a href id="simple-dropdown" uib-dropdown-toggle>
+                                Dropdown test
+                            </a>
+                            <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                                <li ng-repeat="link in HomeCtrl.links">
+                                <a ui-sref="{{link.state}}">{{link.display}}</a>
+                                </li>
+                            </ul>
+                            </span>-->
+
+                        </ul>
+                        <form class="navbar-form navbar-left">
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown" uib-dropdown is-open="status.isopen">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" uib-dropdown-toggle ng-disabled="disabled">Links <span class="caret" ></span></a>
+                                <ul class="dropdown-menu">
+                                    <li ng-repeat="link in HomeCtrl.links">
+                                        <a ui-sref="{{link.state}}">{{link.display}}</a>
+                                </ul>
+                                </li>
+                                <li><a ui-sref="login">Profile <span class="sr-only">(current)</span></a></li>
+                                <li><a ui-sref="favorites">Log Out</a></li>
+                                <li><a ui-sref="addproduct">Add products-temp</a></li>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+
+            <div class="well">
+                <ui-view></ui-view>
+            </div>
+
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+        <!-- end main row -->
+    </div>
+    <!-- end main container -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="bower_components/angularjs-social-login/angularjs-social-login.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- endbower -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div> <!-- end main row -->
-</div> <!-- end main container -->
-
-
-
-
-
-
-<!-- inject:js -->
-<script src="app/app.js"></script>
-<script src="app/localstorage.factory.js"></script>
-<script src="app/home/login.controller.js"></script>
-<script src="app/home/login.factory.js"></script>
-<script src="app/message/message.controller.js"></script>
-<script src="app/message/message.factory.js"></script>
-<script src="app/products/product.controller.js"></script>
-<script src="app/products/product.factory.js"></script>
-<script src="app/user/user.controller.js"></script>
-<script src="app/user/user.factory.js"></script>
-<script src="app/bower_components/angular/angular.js"></script>
-<script src="app/bower_components/angular/angular.min.js"></script>
-<script src="app/bower_components/angular/index.js"></script>
-<script src="app/bower_components/bootstrap/Gruntfile.js"></script>
-<script src="app/bower_components/bootstrap/package.js"></script>
-<script src="app/bower_components/bootstrap/grunt/bs-commonjs-generator.js"></script>
-<script src="app/bower_components/bootstrap/grunt/bs-glyphicons-data-generator.js"></script>
-<script src="app/bower_components/bootstrap/grunt/bs-lessdoc-parser.js"></script>
-<script src="app/bower_components/bootstrap/grunt/bs-raw-files-generator.js"></script>
-<script src="app/bower_components/bootstrap/grunt/change-version.js"></script>
-<script src="app/bower_components/bootstrap/js/affix.js"></script>
-<script src="app/bower_components/bootstrap/js/alert.js"></script>
-<script src="app/bower_components/bootstrap/js/button.js"></script>
-<script src="app/bower_components/bootstrap/js/carousel.js"></script>
-<script src="app/bower_components/bootstrap/js/collapse.js"></script>
-<script src="app/bower_components/bootstrap/js/dropdown.js"></script>
-<script src="app/bower_components/bootstrap/js/modal.js"></script>
-<script src="app/bower_components/bootstrap/js/popover.js"></script>
-<script src="app/bower_components/bootstrap/js/scrollspy.js"></script>
-<script src="app/bower_components/bootstrap/js/tab.js"></script>
-<script src="app/bower_components/bootstrap/js/tooltip.js"></script>
-<script src="app/bower_components/bootstrap/js/transition.js"></script>
-<script src="app/bower_components/jquery/dist/core.js"></script>
-<script src="app/bower_components/jquery/dist/jquery.js"></script>
-<script src="app/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="app/bower_components/jquery/dist/jquery.slim.js"></script>
-<script src="app/bower_components/jquery/dist/jquery.slim.min.js"></script>
-<script src="app/bower_components/jquery/src/ajax.js"></script>
-<script src="app/bower_components/jquery/src/attributes.js"></script>
-<script src="app/bower_components/jquery/src/callbacks.js"></script>
-<script src="app/bower_components/jquery/src/core.js"></script>
-<script src="app/bower_components/jquery/src/css.js"></script>
-<script src="app/bower_components/jquery/src/data.js"></script>
-<script src="app/bower_components/jquery/src/deferred.js"></script>
-<script src="app/bower_components/jquery/src/deprecated.js"></script>
-<script src="app/bower_components/jquery/src/dimensions.js"></script>
-<script src="app/bower_components/jquery/src/effects.js"></script>
-<script src="app/bower_components/jquery/src/event.js"></script>
-<script src="app/bower_components/jquery/src/jquery.js"></script>
-<script src="app/bower_components/jquery/src/manipulation.js"></script>
-<script src="app/bower_components/jquery/src/offset.js"></script>
-<script src="app/bower_components/jquery/src/queue.js"></script>
-<script src="app/bower_components/jquery/src/selector-native.js"></script>
-<script src="app/bower_components/jquery/src/selector-sizzle.js"></script>
-<script src="app/bower_components/jquery/src/selector.js"></script>
-<script src="app/bower_components/jquery/src/serialize.js"></script>
-<script src="app/bower_components/jquery/src/traversing.js"></script>
-<script src="app/bower_components/jquery/src/wrap.js"></script>
-<script src="app/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="app/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="app/bower_components/bootstrap/dist/js/npm.js"></script>
-<script src="app/bower_components/jquery/src/ajax/jsonp.js"></script>
-<script src="app/bower_components/jquery/src/ajax/load.js"></script>
-<script src="app/bower_components/jquery/src/ajax/parseXML.js"></script>
-<script src="app/bower_components/jquery/src/ajax/script.js"></script>
-<script src="app/bower_components/jquery/src/ajax/xhr.js"></script>
-<script src="app/bower_components/jquery/src/attributes/attr.js"></script>
-<script src="app/bower_components/jquery/src/attributes/classes.js"></script>
-<script src="app/bower_components/jquery/src/attributes/prop.js"></script>
-<script src="app/bower_components/jquery/src/attributes/support.js"></script>
-<script src="app/bower_components/jquery/src/attributes/val.js"></script>
-<script src="app/bower_components/jquery/src/core/access.js"></script>
-<script src="app/bower_components/jquery/src/core/DOMEval.js"></script>
-<script src="app/bower_components/jquery/src/core/init.js"></script>
-<script src="app/bower_components/jquery/src/core/nodeName.js"></script>
-<script src="app/bower_components/jquery/src/core/parseHTML.js"></script>
-<script src="app/bower_components/jquery/src/core/ready-no-deferred.js"></script>
-<script src="app/bower_components/jquery/src/core/ready.js"></script>
-<script src="app/bower_components/jquery/src/core/readyException.js"></script>
-<script src="app/bower_components/jquery/src/core/stripAndCollapse.js"></script>
-<script src="app/bower_components/jquery/src/core/support.js"></script>
-<script src="app/bower_components/jquery/src/css/addGetHookIf.js"></script>
-<script src="app/bower_components/jquery/src/css/adjustCSS.js"></script>
-<script src="app/bower_components/jquery/src/css/curCSS.js"></script>
-<script src="app/bower_components/jquery/src/css/hiddenVisibleSelectors.js"></script>
-<script src="app/bower_components/jquery/src/css/showHide.js"></script>
-<script src="app/bower_components/jquery/src/css/support.js"></script>
-<script src="app/bower_components/jquery/src/data/Data.js"></script>
-<script src="app/bower_components/jquery/src/deferred/exceptionHook.js"></script>
-<script src="app/bower_components/jquery/src/effects/animatedSelector.js"></script>
-<script src="app/bower_components/jquery/src/effects/Tween.js"></script>
-<script src="app/bower_components/jquery/src/event/ajax.js"></script>
-<script src="app/bower_components/jquery/src/event/alias.js"></script>
-<script src="app/bower_components/jquery/src/event/focusin.js"></script>
-<script src="app/bower_components/jquery/src/event/support.js"></script>
-<script src="app/bower_components/jquery/src/event/trigger.js"></script>
-<script src="app/bower_components/jquery/src/exports/amd.js"></script>
-<script src="app/bower_components/jquery/src/exports/global.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/buildFragment.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/getAll.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/setGlobalEval.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/support.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/wrapMap.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/_evalUrl.js"></script>
-<script src="app/bower_components/jquery/src/queue/delay.js"></script>
-<script src="app/bower_components/jquery/src/traversing/findFilter.js"></script>
-<script src="app/bower_components/jquery/src/var/arr.js"></script>
-<script src="app/bower_components/jquery/src/var/class2type.js"></script>
-<script src="app/bower_components/jquery/src/var/concat.js"></script>
-<script src="app/bower_components/jquery/src/var/document.js"></script>
-<script src="app/bower_components/jquery/src/var/documentElement.js"></script>
-<script src="app/bower_components/jquery/src/var/fnToString.js"></script>
-<script src="app/bower_components/jquery/src/var/getProto.js"></script>
-<script src="app/bower_components/jquery/src/var/hasOwn.js"></script>
-<script src="app/bower_components/jquery/src/var/indexOf.js"></script>
-<script src="app/bower_components/jquery/src/var/ObjectFunctionString.js"></script>
-<script src="app/bower_components/jquery/src/var/pnum.js"></script>
-<script src="app/bower_components/jquery/src/var/push.js"></script>
-<script src="app/bower_components/jquery/src/var/rcssNum.js"></script>
-<script src="app/bower_components/jquery/src/var/rnothtmlwhite.js"></script>
-<script src="app/bower_components/jquery/src/var/slice.js"></script>
-<script src="app/bower_components/jquery/src/var/support.js"></script>
-<script src="app/bower_components/jquery/src/var/toString.js"></script>
-<script src="app/bower_components/jquery/external/sizzle/dist/sizzle.js"></script>
-<script src="app/bower_components/jquery/external/sizzle/dist/sizzle.min.js"></script>
-<script src="app/bower_components/jquery/src/ajax/var/location.js"></script>
-<script src="app/bower_components/jquery/src/ajax/var/nonce.js"></script>
-<script src="app/bower_components/jquery/src/ajax/var/rquery.js"></script>
-<script src="app/bower_components/jquery/src/core/var/rsingleTag.js"></script>
-<script src="app/bower_components/jquery/src/data/var/acceptData.js"></script>
-<script src="app/bower_components/jquery/src/data/var/dataPriv.js"></script>
-<script src="app/bower_components/jquery/src/data/var/dataUser.js"></script>
-<script src="app/bower_components/jquery/src/css/var/cssExpand.js"></script>
-<script src="app/bower_components/jquery/src/css/var/getStyles.js"></script>
-<script src="app/bower_components/jquery/src/css/var/isHiddenWithinTree.js"></script>
-<script src="app/bower_components/jquery/src/css/var/rmargin.js"></script>
-<script src="app/bower_components/jquery/src/css/var/rnumnonpx.js"></script>
-<script src="app/bower_components/jquery/src/css/var/swap.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/var/rcheckableType.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/var/rscriptType.js"></script>
-<script src="app/bower_components/jquery/src/manipulation/var/rtagName.js"></script>
-<script src="app/bower_components/jquery/src/traversing/var/dir.js"></script>
-<script src="app/bower_components/jquery/src/traversing/var/rneedsContext.js"></script>
-<script src="app/bower_components/jquery/src/traversing/var/siblings.js"></script>
-<!-- endinject -->
+    <!-- inject:js -->
+    <script src="app/app.js"></script>
+    <script src="app/localstorage.factory.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/home.factory.js"></script>
+    <script src="app/home/login.controller.js"></script>
+    <script src="app/home/login.factory.js"></script>
+    <script src="app/message/message.controller.js"></script>
+    <script src="app/message/message.factory.js"></script>
+    <script src="app/products/product.controller.js"></script>
+    <script src="app/products/product.factory.js"></script>
+    <script src="app/user/user.controller.js"></script>
+    <script src="app/user/user.factory.js"></script>
+    <!-- endinject -->
 </body>
+
 </html>
+

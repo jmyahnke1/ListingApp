@@ -23,20 +23,6 @@
         vm.showResults = false;
 
 
-       vm.login = function (loginObject) {
-                 UserFactory
-                .searchUsers(loginObject)
-                .then(function (returned) {
-                    alert("Logged In");
-                    LocalStorageFactory.set('userName', returned.data.userName);
-                    var name = LocalStorageFactory.get('userName');
-                    vm.signedIn = false;
-                    console.log(returned);
-                }, function (error) {
-                    console.log(error);
-                })
-        }
-
      
     }
 

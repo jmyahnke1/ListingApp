@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Messages</title>
+
 </head>
+
 <body ng-controller="MessageControl as MessageCtrl">
- 
-<div class="container">
-  <form action="/action_page.php">
-
-    <!--<label for="fname">Username:</label>
-    <input type="text" id="fname" name="username" placeholder="Your Name" ng-model="MessageCtrl.messageObject.userName">-->
-
-    <label for="lname">Subject:</label>
-    <input type="text" placeholder="Subject"ng-model="MessageCtrl.messageObject.subject">
-
-    <!--<label for="lname">Item Interested in:</label>
-    <input type="text" placeholder="Item" ng-model="MessageCtrl.messageObject.item">-->
-
-    <select id="buySell" name="buySellf">
+  <div class="container">
+    <form action="/action_page.php">
+      <label for="lname">Subject:</label>
+      <input type="text" placeholder="Subject" ng-model="MessageCtrl.messageObject.subject">
+      <select id="buySell" name="buySell">
       <option value="buy">Buy</option>
       <option value="sell">Sell</option>
     </select>
-
-    <label for="subject">Message:</label>
-    <textarea id="subject" name="subject" placeholder="Write message.." style="height:200px" ng-model="MessageCtrl.messageObect.messageText">Enter message</textarea>
-
-    <input type="submit" value="Submit"  ng-click="MessageCtrl.submit(MessageCtrl.messageObject)">
-
-  </form>
-</div>
+      <label for="subject">Message:</label>
+      <textarea id="subject" name="subject" placeholder="Write message.." style="height:200px" ng-model="MessageCtrl.messageObect.messageText">Enter message</textarea>
+      <input type="submit" value="Submit" ng-click="MessageCtrl.submit(MessageCtrl.messageObject)">
+    </form>
+    <div class="list-group">
+     <button type="button" class="btn btn-warning btn-xs" ng-repeat="messages in HomeCtrl.messageHistory" ng-click="HomeCtrl.messageHistory()">Retrieve Messages
+     </button>
+     <li>{{}}</li>
+    </div>
+  </div>
 
 </body>
+
 </html>
