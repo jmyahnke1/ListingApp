@@ -10,8 +10,8 @@
     function HomeFactory($http, localApi) {
         var service = {
             categoriesGrab: categoriesGrab,
-            userLoginSearch : userLoginSearch,
-            registerUser : registerUser
+            userLoginSearch: userLoginSearch,
+            registerUser: registerUser
         };
 
         return service;
@@ -27,20 +27,20 @@
             }, function(error) {
                 console.log("Error" + error);
                 return error;
-            });
+            })
         }
 
-         function userLoginSearch(id) {
-            return $http ({
+        function userLoginSearch(id) {
+            return $http({
                 method: 'GET',
                 url: localApi + 'Users/UserSearch',
                 params: id,
-            }) .then(function (returned){
+            }).then(function(returned) {
                 return returned.data[0];
-            }, function (error){
+            }, function(error) {
                 return error;
             });
-         }
+        }
 
          function registerUser(object){
              return $http ({

@@ -6,11 +6,13 @@
 
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
     <!-- endbower -->
-  
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/styles/styles.css">
+    <!-- endinject -->
 </head>
 
 <body ng-controller="HomeController as HomeCtrl">
@@ -92,8 +94,6 @@
     <script src="app/localstorage.factory.js"></script>
     <script src="app/home/home.controller.js"></script>
     <script src="app/home/home.factory.js"></script>
-    <script src="app/home/login.controller.js"></script>
-    <script src="app/home/login.factory.js"></script>
     <script src="app/message/message.controller.js"></script>
     <script src="app/message/message.factory.js"></script>
     <script src="app/products/product.controller.js"></script>
@@ -104,4 +104,3 @@
 </body>
 
 </html>
-

@@ -4,6 +4,7 @@
     angular
         .module('app')
         .controller('MessageController', MessageController);
+  
     MessageController.$inject = ['messageFactory', 'toastr'];
 
     /* @ngInject */
