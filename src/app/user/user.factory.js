@@ -10,7 +10,9 @@
    /* @ngInject */
     function UserFactory($http, localApi) {
         var service = {
+
             fileUsers: fileUsers
+
         };
 
        return service;
@@ -28,7 +30,5 @@
               });
 
        }
-
-
     }
 })();

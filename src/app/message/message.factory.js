@@ -19,7 +19,7 @@
  function getMessageById(id) {
             return $http({
                 Method: 'GET',
-                url: 'http://localhost:59820/api' + 'Messages' + id,
+                url: 'http://localhost:59820/api' + 'Messages' + UserId,
                 params: searchParameters
             }).then(function (response) {
                 return response.data.messages[0];

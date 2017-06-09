@@ -4,7 +4,7 @@
    angular
         .module('app')
         .controller('UserController', UserController);
-
+  
    UserController.$inject = ['UserFactory', 'localStorageFactory'];
 
    /* @ngInject */
@@ -39,22 +39,6 @@
                     console.log(error);
                 })
         };
-
-
-        // vm.signIn = function(userObject){
-        //     UserFactory
-        //         .fileUsers(userObject)
-        //         .then(function (returned) {
-        //             //SweetAlert.swal("Welcome!");
-        //             console.log(returned.userId);
-        //         }, function (error) {
-        //             alert("Sign In Unsuccessful");
-        //         })
-        // }
-
-
     }
 
 })();
-
-     

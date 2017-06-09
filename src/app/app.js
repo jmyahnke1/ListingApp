@@ -15,6 +15,7 @@
                     templateUrl: "main.html",
                     controller: "HomeController",
                     controllerAs: "HomeCtrl"
+
                 })
 
             
@@ -24,36 +25,31 @@
                     controller: "UserController",
                     controllerAs: "userCtrl"
                 })
-
-
             
                 .state('login', {
                     url: "/fblogin",
                     templateUrl: "app/home/fblogin.html",
-                    controller: "UserController",
-                    controllerAs: "UserCtrl"
+                    controller: "HomeController",
+                    controllerAs: "HomeCtrl"
                 })
 
-            
+
                 .state('productfeed', {
                     url: "/productfeed",
                     templateUrl: "/app/products/product.feed.html",
                     controller: "ProductController",
                     controllerAs: "ProductCtrl"
+
                 })
 
            
+
                 .state('addproduct', {
                     url: "/addproduct",
                     templateUrl: "/app/products/product.add.html",
                     controller: "ProductController",
                     controllerAs: "ProductCtrl"
                 });
-
-
-
-
-
 
 
             // $stateProvider
