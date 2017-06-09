@@ -5,7 +5,7 @@
         .module('app')
         .factory('ProductFactory', ProductFactory);
 
-    ProductFactory.$inject = ['$http', 'localApi', '$q'];
+    ProductFactory.$inject = ['$http', 'localApi', '$q', 'FilePicker'];
 
     /* @ngInject */
     function ProductFactory($http, localApi, $q) {
@@ -63,6 +63,36 @@
 
 
         }
+
+
+        //FilePicker injector
+        //add photo to listing
+        //Upload Photo
+        vm.uploadPhoto = function() {
+            filepickerService.pick({
+                    mimetype: 'image/*',
+                    container: 'modal',
+                    services: ['computer', 'facebook']
+                },
+                function onSuccess(Blob) {
+                    console.log(Blob);
+                    vm.listing.listingImage = Blob.url + "+" + Blob.filename;
+                })
+        }
+
+        //update Photo
+        vm.updatePhoto = function() {
+            filepickerService.pick({
+                    mimetype: 'image/*',
+                    container: 'modal',
+                    services: ['computer', 'facebook']
+                },
+                function onSuccess(Blob) {
+                    console.log(Blob);
+                    vm.hostListing.listingImage = Blob.url + "+" + Blob.filename;
+                })
+        }
+
 
 
 

@@ -51,7 +51,7 @@
                 }, function(error) {
                     console.log(error);
                 })
-        }
+        } //end of sortByCategories
 
     }; //end of ProductController
 
