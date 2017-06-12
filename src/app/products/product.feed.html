@@ -8,13 +8,34 @@
             <option value="{{items.categoryId}}" ng-repeat="items in ProductCtrl.categories">{{items.categoryDescription}}</option>
         </select>
 </div>
-<button type="button" class="btn btn-default btn-lg btn-block" ng-click="ProductCtrl.sortByCategories()">Get Products By Category</button>
+<button type="button" class="btn btn-default btn-lg btn-block" ng-click="ProductCtrl.sortByCategories()"><i class="fa fa-hand-o-right" aria-hidden="true"></i>
+Get Products By Category <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+</i>
+</button>
 
-<pre> {{ ProductCtrl.sorted | json }} </pre>
+<!--<pre> {{ ProductCtrl.sorted | json }} </pre>-->
+<!---->
 
 
-<div class="panel panel-default">
-    <div class="panel-body">
-
-    </div>
+<div class="list-group">
+    <button type="button" class="list-group-item" ng-repeat="stuff in ProductCtrl.sorted" ng-click="ProductCtrl.getProductDetails(stuff.productId)"><strong>Product Name:</strong> {{stuff.productName}}. 
+    
+        </button>
 </div>
+
+<div ng-show="ProductCtrl.detailsPanel" class="panel panel-default ng-show">
+    <div class="panel-heading">
+        <h3 class="panel-title panel-primary">Name: {{ProductCtrl.detailedProducts.productName}}</h3>
+    </div>
+    <div class="panel-body"> Asking price: <i class="fa fa-usd" aria-hidden="true"></i> {{ProductCtrl.detailedProducts.price}}
+    </div>
+    <div class="panel-body"> Condition: {{ProductCtrl.detailedProducts.condition}}</div>
+    <div class="panel-body"> Additional info: {{ProductCtrl.detailedProducts.productDescription}}</div>
+    <button class="btn btn-default" type="submit" ng-click="ProductCtrl.submitMessage(ProductCtrl.messageObject)">Contact Seller</button>
+    <div class="form-group">
+        <label for="comment" ng-model="ProductCtrl.messageObject.text">Message:</label>
+        <textarea class="form-control" rows="5" id="comment"></textarea>
+    </div>
+
+</div>
+<!--end of product details div-->

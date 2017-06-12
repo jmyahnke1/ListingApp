@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listing App Thing</title>
+    <title>Listing App</title>
 
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
 
     <!-- inject:css -->
@@ -30,7 +31,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                        <a class="navbar-brand" href="#">Listing App</a>
+                        <a class="navbar-brand" href="#">Listing App <i class="fa fa-barcode" aria-hidden="true"></i>
+</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -58,9 +60,12 @@
                                         <a ui-sref="{{link.state}}">{{link.display}}</a>
                                 </ul>
                                 </li>
-                                <li><a ui-sref="login">Profile <span class="sr-only">(current)</span></a></li>
+                                <li><a ui-sref="login">Profile <i class="fa fa-user-circle" aria-hidden="true"></i>
+<span class="sr-only">(current)</span></a></li>
                                 <li><a ui-sref="favorites">Log Out</a></li>
                                 <li><a ui-sref="addproduct">Add products-temp</a></li>
+                                <li><a ui-sref="message"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+</a></li>
 
                             </li>
                         </ul>
@@ -88,6 +93,8 @@
     <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!--<script src="bower_components/filepicker-js/filepicker.min.js"></script>-->
+    <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
     <!-- endbower -->
 
     <!-- inject:js -->

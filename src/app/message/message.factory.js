@@ -4,21 +4,31 @@
 //     angular
 //         .module('app')
 //         .factory('MessageFactory', MessageFactory);
-
-//     MessageFactory.$inject = [];
+//     MessageFactory.$inject = ['$http', 'localApi'];
 
 //     /* @ngInject */
-//     function MessageFactory() {
+//     function MessageFactory($http, localApi) {
 //         var service = {
-//             function: function
-//         }
+//             getMessage: getMessage,
+//             postMessage: postMessage
+
+//         };
 
 //         return service;
 
-//         function
+//         function getMessageById(id) {
+//             return $http({
+//                 Method: 'GET',
+//                 url: 'http://localhost:59820/api' + 'Messages' + UserId,
+//                 params: searchParameters
+//             }).then(function(response) {
+//                 return response.data.messages[0];
+//             }, function(error) {
+//                 console.log("Error" + error);
+//                 return error;
+//             });
+//         } //end of getMessage function
 
-//         function() {
 
-//         }
 //     }
 // })();

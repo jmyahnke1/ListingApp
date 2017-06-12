@@ -5,14 +5,16 @@
         .module('app')
         .factory('ProductFactory', ProductFactory);
 
-    ProductFactory.$inject = ['$http', 'localApi', '$q', 'FilePicker'];
+    ProductFactory.$inject = ['$http', 'localApi', '$q'];
 
     /* @ngInject */
     function ProductFactory($http, localApi, $q) {
         var service = {
             getProductCategories: getProductCategories,
             postProduct: postProduct,
-            getProductByCategories: getProductByCategories
+            getProductByCategories: getProductByCategories,
+            getProduct: getProduct,
+            postMessage: postMessage
         };
 
         return service;
@@ -60,39 +62,39 @@
                 console.log("Error" + error);
                 return error;
             });
+        }
 
-
+        function getProduct(productId) {
+            return $http({
+                method: 'GET',
+                url: localApi + 'Products/ProductDetails?search=' + productId,
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                }
+            }).then(function(returned) {
+                return returned;
+            }, function(error) {
+                console.log("Error" + error);
+                return error;
+            });
         }
 
 
-        //FilePicker injector
-        //add photo to listing
-        //Upload Photo
-        vm.uploadPhoto = function() {
-            filepickerService.pick({
-                    mimetype: 'image/*',
-                    container: 'modal',
-                    services: ['computer', 'facebook']
-                },
-                function onSuccess(Blob) {
-                    console.log(Blob);
-                    vm.listing.listingImage = Blob.url + "+" + Blob.filename;
-                })
-        }
-
-        //update Photo
-        vm.updatePhoto = function() {
-            filepickerService.pick({
-                    mimetype: 'image/*',
-                    container: 'modal',
-                    services: ['computer', 'facebook']
-                },
-                function onSuccess(Blob) {
-                    console.log(Blob);
-                    vm.hostListing.listingImage = Blob.url + "+" + Blob.filename;
-                })
-        }
-
+        function postMessage(message) {
+            return $http({
+                Method: 'Post',
+                url: 'localApi' + 'Messages',
+                dataType: 'json',
+                data: message,
+                headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+                }
+            }).then(function(info) {
+                return info;
+            }, function(error) {
+                return error;
+            })
+        } //end of postMessage function
 
 
 
