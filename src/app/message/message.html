@@ -1,1 +1,5 @@
-<p>TESTING PAGE FOR MESSAGING PAGE STUFF YEP.</p>
+<button type="button" value="{{messages.userId}}" class="btn btn-warning" ng-repeat="messages in UserCtrl.messageHistory" ng-click="UserCtrl.messageHistory()"> Retrieve Messages</button>
+
+<button ng-click="UserCtrl.messageHistory()"> Here's a button </button>
+
+<pre>{{messages.userId}}</pre>

@@ -9,7 +9,7 @@
 
     function HomeController(HomeFactory, SweetAlert, $state, localStorageFactory) {
         var vm = this;
-
+        vm.showResults = false;
 
         vm.links = [{
             'display': 'Welcome User!',
@@ -45,7 +45,16 @@
                     var setId = returned.userId;
                     localStorageFactory.setLocalStorage('userId', setId);
                     var getId = localStorageFactory.getLocalStorage('userId');
+
                     console.log(getId);
+
+                    var setAll = returned.data;
+                    localStorageFactory.setLocalStorage('setUserInfo', setAll);
+                    var getUserInfo = localStorageFactory.getLocalStorage('getUserInfo');
+                    var userInfo = getUserInfo;
+                    console.log(userInfo);
+
+
 
                     $state.go('profile');
 
@@ -54,7 +63,12 @@
                 })
         }
 
-        vm.register = function(registrationObject) {
+        vm.register = function() {
+            vm.showResults = true;
+        }
+
+
+        vm.submitRegistration = function(registrationObject) {
             HomeFactory
                 .registerUser(registrationObject)
                 .then(function(returned) {

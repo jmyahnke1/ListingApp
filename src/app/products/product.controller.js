@@ -5,16 +5,17 @@
         .module('app')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['ProductFactory'] //, 'filepickerService'];
+    ProductController.$inject = ['ProductFactory', 'localStorageFactory'] //, 'filepickerService'];
 
     /* @ngInject */
-    function ProductController(ProductFactory) { //, filepickerService) {
+    function ProductController(ProductFactory, localStorageFactory) { //, filepickerService) {
         var vm = this;
         vm.sortByCategories = sortByCategories;
         var date = new Date();
         var todaysDateTime = date.toLocaleString();
         vm.CreationDate = todaysDateTime;
         vm.messageObject = {};
+        vm.userId = {};
         // vm.messageObject.CreationDate = null;
 
         activate();
@@ -100,18 +101,20 @@
 
         vm.submitMessage = function() {
                 vm.messageObject.CreationDate = todaysDateTime;
+                localStorageFactory.setLocalStorage('userId', setId);
+                var getUserId = localStorageFactory.getLocalStorage('userId');
+                var getMessageId = localStorageFactory.setLocalStorage('messageId', setId);
+                console.log(getUserId);
+                console.log(getMessageId);
                 ProductFactory
                     .postMessage(vm.messageObject)
                     .then(function(returned) {
+
                         SweetAlert.swal("Message Sent!");
                         var setId = returned.userId;
                         var setMessageId = returned.messageId;
                         console.log(returned.data);
-                        localStorageFactory.setLocalStorage('userId', setId);
-                        var getUserId = localStorageFactory.getLocalStorage('userId');
-                        var getMessageId = localStorageFactory.setLocalStorage('messageId', setId);
-                        console.log(getUserId);
-                        console.log(getMessageId);
+
                     }, function(error) {
                         alert("Message was unable to send");
                     })
