@@ -32,6 +32,14 @@ Get Products By Category <i class="fa fa-hand-o-left" aria-hidden="true"></i>
     <div class="panel-body"> Condition: {{ProductCtrl.detailedProducts.condition}}</div>
     <div class="panel-body"> Additional info: {{ProductCtrl.detailedProducts.productDescription}}</div>
     <button class="btn btn-default" type="submit" ng-click="ProductCtrl.submitMessage(ProductCtrl.messageObject)">Contact Seller</button>
+
+    <div class="form-group">
+        <label for="categoryselect">Seller </label>
+        <select id="categoryselect" class="form-control" ng-model="product.categoryId">
+            <option value="{{items.categoryId}}" ng-repeat="items in ProductCtrl.categories">{{items.categoryDescription}}</option>
+        </select>
+    </div>
+
     <div class="form-group">
         <label for="comment" ng-model="ProductCtrl.messageObject.Subject">Subject:</label>
         <textarea class="form-control" rows="1" id="comment"></textarea>
