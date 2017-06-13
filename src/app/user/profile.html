@@ -49,7 +49,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <!--<li><a ui-sref="addproduct">Add products</a></li>-->
                                 <button type="button" class="btn btn-primary" ng-click="UserCtrl.updateInfo(UserCtrl.userDetail)"> Update Profile Information </button>
+                                <button type="button" class="btn btn-primary" ui-sref="addproduct">Add Product</button>
                                 <button id="messageSelect" type="button" value="{{messages.userId}}" class="btn btn-warning" ng-click="UserCtrl.messageHistory()"> Retrieve Messages</button>
                             </div>
                         </div>
