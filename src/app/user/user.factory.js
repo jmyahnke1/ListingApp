@@ -11,7 +11,8 @@
     function UserFactory($http, localApi) {
         var service = {
             fileUsers: fileUsers,
-            changeInfo: changeInfo
+            changeInfo: changeInfo,
+            getMessageById: getMessageById
         };
 
         return service;
@@ -42,5 +43,22 @@
                 return error;
             });
         }
+
+        function getMessageById(id) {
+            return $http({
+                Method: 'GET',
+                url: localApi + 'Messages/GetMessageByUserId?userId' + Id,
+                params: id
+            }).then(function(response) {
+                return response.data.messages[0];
+            }, function(error) {
+                console.log("Error" + error);
+                return error;
+            });
+        } //end of getMessage function
+
+
+
+
     }
 })();

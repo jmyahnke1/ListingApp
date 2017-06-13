@@ -58,6 +58,13 @@
 
         vm.updateInfo = function() {
 
+            userInfo.phoneNumber = vm.userDetail.phoneNumber;
+            userInfo.birthdate = vm.userDetail.birthdate;
+            userInfo.password = vm.userDetail.password;
+            userInfo.zipCode = vm.userDetail.zipCode;
+            userInfo.userName = vm.userDetail.userName;
+            userInfo.email = vm.userDetail.email;
+
             UserFactory
                 .changeInfo(userInfo.userId, userInfo)
                 .then(function(response) {
@@ -66,8 +73,26 @@
                 }, function(error) {
                     console.log(error);
                 })
-        };
 
+            localStorageFactory.setLocalStorage('setUserInfo', userInfo);
+        };
+        vm.messageHistory = function() {
+                // var userId = localStorageFactory.setLocalStorage('userId', setId);
+                var getId = localStorageFactory.getLocalStorage('userId');
+
+                UserFactory
+                    .getMessageById(getId)
+                    .then(function(returned) {
+                        //vm.selectedUser = data;
+                        vm.returnMessage = returned;
+                        console.log(returned);
+                        return (returned);
+                        //vm.sorted = returned.data;
+                    }, function(error) {
+                        console.log(error);
+                        return (error);
+                    });
+            } //end of get message function;;
 
 
 
