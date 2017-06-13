@@ -10,9 +10,8 @@
     /* @ngInject */
     function UserFactory($http, localApi) {
         var service = {
-
-            fileUsers: fileUsers
-
+            fileUsers: fileUsers,
+            changeInfo: changeInfo
         };
 
         return service;
@@ -31,23 +30,17 @@
 
         }
 
-        function changeInfo(updatedInfo) {
+        function changeInfo(updatedInfo, user) {
             return $http({
                 method: 'PUT',
-                url: localApi + 'users',
-                params: updatedInfo,
+                url: localApi + 'users/' + updatedInfo,
+                data: user,
             }).then(function(returned) {
-                return returned.data;
+                return returned;
             }, function(error) {
                 console.log("Error" + error);
                 return error;
             });
-
-
-
         }
-
-
-
     }
 })();

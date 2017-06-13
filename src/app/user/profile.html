@@ -49,14 +49,13 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn btn-primary" ng-click="userCtrl.getInfo()"> Update Profile Information </button>
+                                <button type="button" class="btn btn-primary" ng-click="UserCtrl.updateInfo(UserCtrl.userDetail)"> Update Profile Information </button>
                                 <button id="messageSelect" type="button" value="{{messages.userId}}" class="btn btn-warning" ng-click="UserCtrl.messageHistory()"> Retrieve Messages</button>
-                                <pre>{{messages.userId}}</pre> </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 </body>

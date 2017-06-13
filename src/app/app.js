@@ -2,11 +2,13 @@
     'use strict';
 
     angular
-        .module('app', ['oitozero.ngSweetAlert', 'socialLogin', 'ui.router', 'ui.bootstrap', 'LocalStorageModule', 'angular-filepicker'])
+        .module('app', ['oitozero.ngSweetAlert', 'socialLogin', 'ui.router', 'ui.bootstrap', 'LocalStorageModule'])
+        // , 'angular-filepicker'])
         .value('localApi', 'http://localhost:59820/api/')
-        .config(function($stateProvider, $urlRouterProvider, socialProvider, localStorageServiceProvider, filepickerProvider) {
+        .config(function($stateProvider, $urlRouterProvider, socialProvider, localStorageServiceProvider) {
+            // , filepickerProvider) {
 
-            filepickerProvider.setKey('AMLMV2FACSqydDqkcATtaz');
+            // filepickerProvider.setKey('AMLMV2FACSqydDqkcATtaz');
             localStorageServiceProvider.setPrefix('app').setStorageType('sessionStorage').setNotify(true, true);
 
             $urlRouterProvider.otherwise("/main");
