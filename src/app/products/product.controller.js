@@ -15,6 +15,8 @@
         var todaysDateTime = date.toLocaleString();
         vm.CreationDate = todaysDateTime;
         vm.messageObject = {};
+        vm.emailAddresses = [];
+        vm.selectedEmail = "";
         // vm.userId = {};
         // vm.messageObject.CreationDate = null;
         var currentProductId = 0;
@@ -25,7 +27,24 @@
 
         function activate() {
             getCategories();
+            getEmailAddress();
         }
+
+        function getEmailAddress() {
+            ProductFactory
+                .getEmailAddresses()
+                .then(function(response) {
+                    console.log(response);
+                    var userData = response.data;
+                    for (var index = 0; index < userData.length; index++) {
+                        vm.emailAddresses.push(userData[index].email);
+                    }
+                    //toastr.success("Something cool happened");      
+                }, function(error) {
+                    console.log(error);
+                })
+        };
+
 
         function getCategories() {
             ProductFactory
