@@ -15,8 +15,11 @@
         var todaysDateTime = date.toLocaleString();
         vm.CreationDate = todaysDateTime;
         vm.messageObject = {};
-        vm.userId = {};
+        // vm.userId = {};
         // vm.messageObject.CreationDate = null;
+        var currentProductId = 0;
+
+
 
         activate();
 
@@ -94,25 +97,25 @@
                     console.log(returned);
                     vm.detailedProducts = returned.data[0];
                     vm.detailsPanel = true;
+                    currentProductId = productId;
                 }, function(error) {
                     console.log(error);
                 })
         }
 
         vm.submitMessage = function() {
+                var messageUser = localStorageFactory.getLocalStorage('setUserInfo');
+
                 vm.messageObject.CreationDate = todaysDateTime;
-                localStorageFactory.setLocalStorage('userId', setId);
-                var getUserId = localStorageFactory.getLocalStorage('userId');
-                var getMessageId = localStorageFactory.setLocalStorage('messageId', setId);
-                console.log(getUserId);
-                console.log(getMessageId);
+                vm.messageObject.UserId = messageUser.UserId;
+                vm.messageObject.ProductId = currentProductId;
+                vm.messageObject.IsRead = false;
+
                 ProductFactory
                     .postMessage(vm.messageObject)
                     .then(function(returned) {
-
                         SweetAlert.swal("Message Sent!");
-                        var setId = returned.userId;
-                        var setMessageId = returned.messageId;
+
                         console.log(returned.data);
 
                     }, function(error) {

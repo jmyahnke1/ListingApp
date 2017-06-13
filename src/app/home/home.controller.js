@@ -42,19 +42,17 @@
                     SweetAlert.swal("Great job!");
                     console.log(returned.userId);
 
-                    var setId = returned.userId;
-                    localStorageFactory.setLocalStorage('userId', setId);
-                    var getId = localStorageFactory.getLocalStorage('userId');
+                    // var setId = returned.userId;
+                    // localStorageFactory.setLocalStorage('userId', setId);
+                    // var getId = localStorageFactory.getLocalStorage('userId');
 
-                    console.log(getId);
+                    // console.log(getId);
 
-                    var setAll = returned.data;
+                    var setAll = returned;
                     localStorageFactory.setLocalStorage('setUserInfo', setAll);
-                    var getUserInfo = localStorageFactory.getLocalStorage('getUserInfo');
-                    var userInfo = getUserInfo;
-                    console.log(userInfo);
-
-
+                    var getUserInfo = localStorageFactory.getLocalStorage('setUserInfo');
+                    // var userInfo = getUserInfo;
+                    // console.log(userInfo);
 
                     $state.go('profile');
 

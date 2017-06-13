@@ -30,5 +30,24 @@
             });
 
         }
+
+        function changeInfo(updatedInfo) {
+            return $http({
+                method: 'PUT',
+                url: localApi + 'users',
+                params: updatedInfo,
+            }).then(function(returned) {
+                return returned.data;
+            }, function(error) {
+                console.log("Error" + error);
+                return error;
+            });
+
+
+
+        }
+
+
+
     }
 })();

@@ -3,7 +3,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-                <A href="edit.html">Edit Profile</A>
 
                 <A href="edit.html">Logout</A>
                 <br>
@@ -25,32 +24,32 @@
                                     <tbody>
                                         <tr>
                                             <td>UserName</td>
-                                            <td><input type="text" ng-model="userCtrl.userDetail.userName" /></td>
+                                            <td><input type="text" ng-model="UserCtrl.userDetail.userName" /></td>
                                         </tr>
                                         <tr>
                                             <td>ZipCode:</td>
-                                            <td><input type="text" ng-model="userCtrl.userDetail.zipCode" /></td>
+                                            <td><input type="text" ng-model="UserCtrl.userDetail.zipCode" /></td>
                                         </tr>
 
                                         <tr>
                                             <td>Date of Birth</td>
-                                            <td><input type="text" ng-model="userCtrl.userDetail.birthdate" /></td>
+                                            <td><input type="text" ng-model="UserCtrl.userDetail.birthdate" /></td>
                                         </tr>
 
                                         <tr>
                                             <td>Password</td>
-                                            <td><input type="text" ng-model="userCtrl.userDetail.password" /></td>
+                                            <td><input type="text" ng-model="UserCtrl.userDetail.password" /></td>
                                         </tr>
                                         <tr>
                                             <td>Email</td>
-                                            <td><input type="text" ng-model="userCtrl.userDetail.email" /></td>
+                                            <td><input type="text" ng-model="UserCtrl.userDetail.email" /></td>
                                         </tr>
                                         <td>Phone Number</td>
-                                        <td><input type="text" ng-model="userCtrl.userDetail.phoneNumber" /></td>
+                                        <td><input type="text" ng-model="UserCtrl.userDetail.phoneNumber" /></td>
                                         </tr>
                                     </tbody>
                                 </table>
-                                <button type="button" class="btn btn-primary" ng-click="userCtrl.getInfo()"> Profile Information </button>
+                                <button type="button" class="btn btn-primary" ng-click="userCtrl.getInfo()"> Update Profile Information </button>
                                 <button id="messageSelect" type="button" value="{{messages.userId}}" class="btn btn-warning" ng-click="UserCtrl.messageHistory()"> Retrieve Messages</button>
                                 <pre>{{messages.userId}}</pre> </div>
                         </div>
