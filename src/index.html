@@ -7,11 +7,10 @@
 
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css" />
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
-
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- inject:css -->
     <link rel="stylesheet" href="app/styles/styles.css">
     <!-- endinject -->
@@ -61,8 +60,8 @@
                                 </ul>
                                 </li>
                                 <li><a ui-sref="login">Profile <i class="fa fa-user-circle" aria-hidden="true"></i>
-<span class="sr-only">(current)</span></a></li>
-                                <li><a ui-sref="favorites">Log Out</a></li>
+                                    <!--<span class="sr-only">(current)</span></a></li>-->
+                                <li><a ui-sref="favorites" ng-click="HomeCtrl.doLogOut()">Log Out</a></li>
 
 
 

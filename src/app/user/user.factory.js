@@ -45,12 +45,14 @@
         }
 
         function getMessageById(id) {
+            console.log(id);
             return $http({
                 Method: 'GET',
-                url: localApi + 'Messages/GetMessageByUserId?userId' + Id,
-                params: id
+                url: localApi + 'Messages/GetReceivedMessages?ToUserID=' + id
+                    //params: id
+
             }).then(function(response) {
-                return response.data.messages[0];
+                return response.data;
             }, function(error) {
                 console.log("Error" + error);
                 return error;

@@ -14,7 +14,8 @@
             postProduct: postProduct,
             getProductByCategories: getProductByCategories,
             getProduct: getProduct,
-            postMessage: postMessage
+            postMessage: postMessage,
+            getEmailAddresses: getEmailAddresses
         };
 
         return service;
@@ -29,7 +30,20 @@
                 console.log("Error" + error);
                 return error;
             });
-        } //end of getProductDetails
+        } //end of getProductCategories
+
+        function getEmailAddresses() {
+            return $http({
+                method: 'GET',
+                url: localApi + 'Users'
+            }).then(function(returned) {
+                return returned;
+            }, function(error) {
+                console.log("Error in getEmailAddresses" + error);
+                return error;
+            });
+        } //end of getEmailAddresses
+
 
         function postProduct(product) {
             console.log(product);
@@ -82,13 +96,12 @@
 
         function postMessage(message) {
             return $http({
-                Method: 'Post',
-                url: 'localApi' + 'Messages',
-                dataType: 'json',
-                data: message,
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
-                }
+                Method: 'POST',
+                url: localApi + 'Messages',
+                data: message
+                    // headers: {
+                    //     'Content-Type': 'application/json; charset=utf-8'
+                    // }
             }).then(function(info) {
                 return info;
             }, function(error) {

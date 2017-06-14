@@ -21,7 +21,7 @@
         function categoriesGrab(allCats) {
             return $http({
                 method: 'GET',
-                url: localApi + 'categories',
+                url: localApi + 'categories'
             }).then(function(returned) {
                 return returned;
             }, function(error) {
@@ -34,7 +34,7 @@
             return $http({
                 method: 'GET',
                 url: localApi + 'Users/UserSearch',
-                params: id,
+                params: id
             }).then(function(returned) {
                 return returned.data[0];
             }, function(error) {
@@ -46,7 +46,7 @@
             return $http({
                 method: 'Post',
                 url: localApi + 'Users',
-                params: details,
+                data: details
             }).then(function(returned) {
                 return returned;
             }, function(error) {

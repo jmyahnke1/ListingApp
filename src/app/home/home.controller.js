@@ -57,7 +57,7 @@
                     $state.go('profile');
 
                 }, function(error) {
-                    alert("Sign In Unsuccessful");
+                    SweetAlert.swal("Login failed miserably.", "warning");
                 })
         }
 
@@ -71,10 +71,17 @@
                 .registerUser(registrationObject)
                 .then(function(returned) {
                     SweetAlert.swal("Registration Complete!");
+                    vm.showResults = false;
                     console.log(returned);
                 }, function(error) {
                     alert("Registration Unsuccessful");
                 })
         }
+
+        vm.doLogOut = function() {
+            localStorageFactory.logout();
+            SweetAlert.swal("You logged out like a pro.")
+            $state.go('login');
+        };
     };
 })();
