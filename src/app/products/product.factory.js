@@ -96,13 +96,12 @@
 
         function postMessage(message) {
             return $http({
-                Method: 'Post',
-                url: 'localApi' + 'Messages',
-                dataType: 'json',
-                data: message,
-                headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
-                }
+                Method: 'POST',
+                url: localApi + 'Messages',
+                data: message
+                    // headers: {
+                    //     'Content-Type': 'application/json; charset=utf-8'
+                    // }
             }).then(function(info) {
                 return info;
             }, function(error) {

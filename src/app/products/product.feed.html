@@ -23,15 +23,14 @@ Get Products By Category <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         </button>
 </div>
 
-<div ng-show="ProductCtrl.detailsPanel" class="panel panel-default ng-show">
+<div ng-show="ProductCtrl.detailsPanel" class="panel panel-primary ng-show">
     <div class="panel-heading">
-        <h3 class="panel-title panel-primary">Name: {{ProductCtrl.detailedProducts.productName}}</h3>
+        <h3 class="panel-title">Name: {{ProductCtrl.detailedProducts.productName}}</h3>
     </div>
     <div class="panel-body"> Asking price: <i class="fa fa-usd" aria-hidden="true"></i> {{ProductCtrl.detailedProducts.price}}
     </div>
     <div class="panel-body"> Condition: {{ProductCtrl.detailedProducts.condition}}</div>
     <div class="panel-body"> Additional info: {{ProductCtrl.detailedProducts.productDescription}}</div>
-    <button class="btn btn-default" type="submit" ng-click="ProductCtrl.submitMessage(ProductCtrl.messageObject)">Contact Seller</button>
 
     <div class="form-group">
         <label for="categoryselect">Seller </label>
@@ -41,14 +40,15 @@ Get Products By Category <i class="fa fa-hand-o-left" aria-hidden="true"></i>
     </div>
 
     <div class="form-group">
-        <label for="comment" ng-model="ProductCtrl.messageObject.Subject">Subject:</label>
-        <textarea class="form-control" rows="1" id="comment"></textarea>
+        <label for="comment">Subject:</label>
+        <textarea class="form-control" rows="1" id="comment" ng-model="ProductCtrl.subject"></textarea>
     </div>
     <div class="form-group">
-        <label for="comment" ng-model="ProductCtrl.messageObject.MessageText">Message:</label>
-        <textarea class="form-control" rows="5" id="comment"></textarea>
+        <label for="comment">Message:</label>
+        <textarea class="form-control" rows="5" id="comment" ng-model="ProductCtrl.messageText"></textarea>
     </div>
 
+    <button class="btn btn-warning" type="submit" ng-click="ProductCtrl.submitMessage(ProductCtrl.messageObject)">Contact Seller</button>
 
 </div>
 <!--end of product details div-->

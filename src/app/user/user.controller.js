@@ -11,6 +11,7 @@
     function UserController(UserFactory, localStorageFactory, SweetAlert) {
 
         var vm = this;
+        vm.today = new Date();
 
         // vm.title = 'UserController';
         vm.userDetail = {};
@@ -78,10 +79,10 @@
         };
         vm.messageHistory = function() {
                 // var userId = localStorageFactory.setLocalStorage('userId', setId);
-                var getId = localStorageFactory.getLocalStorage('userId');
+                var getId = localStorageFactory.getLocalStorage('setUserInfo');
 
                 UserFactory
-                    .getMessageById(getId)
+                    .getMessageById(getId.userId)
                     .then(function(returned) {
                         //vm.selectedUser = data;
                         vm.returnMessage = returned;

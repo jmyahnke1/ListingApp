@@ -5,10 +5,10 @@
         .module('app')
         .controller('ProductController', ProductController);
 
-    ProductController.$inject = ['ProductFactory', 'localStorageFactory'] //, 'filepickerService'];
+    ProductController.$inject = ['ProductFactory', 'localStorageFactory', 'SweetAlert', '$state'] //, 'filepickerService'];
 
     /* @ngInject */
-    function ProductController(ProductFactory, localStorageFactory) { //, filepickerService) {
+    function ProductController(ProductFactory, localStorageFactory, SweetAlert, $state) { //, filepickerService) {
         var vm = this;
         vm.sortByCategories = sortByCategories;
         var date = new Date();
@@ -17,6 +17,8 @@
         vm.messageObject = {};
         vm.emailAddresses = [];
         vm.selectedEmail = "";
+        vm.subject = "";
+        vm.messageText = "";
         // vm.userId = {};
         // vm.messageObject.CreationDate = null;
         var currentProductId = 0;
@@ -63,6 +65,8 @@
                 .postProduct(product)
                 .then(function(response) {
                     console.log(response);
+                    SweetAlert.swal("Item posted. Hope it sells!");
+                    $state.go('productfeed');
                     // postList(response);
                 }, function(error) {
                     console.log(error);
@@ -125,10 +129,13 @@
         vm.submitMessage = function() {
                 var messageUser = localStorageFactory.getLocalStorage('setUserInfo');
 
-                vm.messageObject.CreationDate = todaysDateTime;
-                vm.messageObject.UserId = messageUser.UserId;
-                vm.messageObject.ProductId = currentProductId;
-                vm.messageObject.IsRead = false;
+                vm.messageObject.creationDate = todaysDateTime;
+                vm.messageObject.userId = messageUser.userId;
+                vm.messageObject.productId = currentProductId;
+                vm.messageObject.messageText = vm.messageText;
+                vm.messageObject.subject = vm.subject;
+
+                vm.messageObject.isRead = false;
 
                 ProductFactory
                     .postMessage(vm.messageObject)
